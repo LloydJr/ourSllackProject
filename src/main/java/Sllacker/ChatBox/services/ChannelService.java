@@ -11,5 +11,8 @@ public class ChannelService {
     private ChannelRepository repository;
 
     @Autowired
-    public ChannelService(ChannelRepository repository) {this.repository = repository;}
-    
+    public ChannelService(ChannelRepository repository) {
+        this.repository = repository;
+    }
+
+}

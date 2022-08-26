@@ -9,6 +9,6 @@ public class UserService {
 
     private UserRepository repository;
 
-    @Autowired
-    public UserService(UserRepository repository) {this.repository = repository;}
+//    @Autowired
+//    public UserService(UserRepository repository) {this.repository = repository;}
 }
