@@ -10,8 +10,8 @@ import lombok.*;
 public class Message {
 
 
-    private Long senderId;
-    private Long receiverId;
+    private Long senderUserId;
+    private Long receiverUserId;
     private String message;
     private String date;
     private Status status;
