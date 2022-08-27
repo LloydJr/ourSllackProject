@@ -5,7 +5,7 @@ function NavigationMenu(props) {
   return (
     <div>
     <span className="font-bold py-3">
-                GoGoYugioh
+                Yo
             </span>
             <ul>
         <li>
