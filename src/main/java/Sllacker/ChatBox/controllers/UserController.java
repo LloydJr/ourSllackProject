@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/user")
@@ -28,8 +28,9 @@ public class UserController {
     }
 
     @GetMapping
-  public @ResponseBody ResponseEntity<List<User>> getUser(@PathVariable Long id){
-     return new ResponseEntity<>(repository.findAll(), HttpStatus.OK ); //Optional caters for if you don't have a particular user. In that case it just returns null.
+  public @ResponseBody ResponseEntity<List<User>> getUser(){
+      List<User> list = repository.findAll();
+     return new ResponseEntity<>(list, HttpStatus.OK ); //Optional caters for if you don't have a particular user. In that case it just returns null.
     }
 
 
