@@ -1,6 +1,8 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -14,14 +16,12 @@ public class Message {
     @Column(name = "id", nullable = false)
     private Long id;
     private String message;
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @CreationTimestamp
     private Timestamp date;
-    private Status status;
-
-
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user")
+    @JsonBackReference
     private User user;
 
     public User getUser() {
@@ -57,12 +57,6 @@ public class Message {
         this.date = date;
     }
 
-    public Status getStatus() {
-        return status;
-    }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 }
 
