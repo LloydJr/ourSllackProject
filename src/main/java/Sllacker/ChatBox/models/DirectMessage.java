@@ -10,9 +10,6 @@ public class DirectMessage {
 
     @Column(name = "user_id", nullable = false)
     private Long userId;
-    @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "messages_id", nullable = false)
-    private Long messagesId;
 
 
     public Long getUserId() {
@@ -23,11 +20,4 @@ public class DirectMessage {
         this.userId = userId;
     }
 
-    public Long getMessagesId() {
-        return messagesId;
-    }
-
-    public void setMessagesId(Long messagesId) {
-        this.messagesId = messagesId;
-    }
 }
