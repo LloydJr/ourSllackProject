@@ -2,15 +2,16 @@ import React from 'react'
 import imageSllacker from './images/sllacker.png'
 import userIcon from './images/149071.png'
 import searchIcon from './images/1024px-Search_Icon.svg.png'
+import App from '../App'
 
 function Header() {
   return (
-    <header className="border-b p-3 flex justify-between items-center">
+    <header className="border-b p-3 flex justify-between items-center Header">
 
     <div class="shrink-0 h-18 w-32 ...">
         <img src={imageSllacker} alt="" />
     </div>
-    <div class="absolute right-0 h-16 w-16 ... pr-4">
+    <div class="absolute right-0 h-14 w-16 ... pr-4">
     <img src={userIcon} alt="" />
     </div>
     <div class="md:container md:mx-auto">
