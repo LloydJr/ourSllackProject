@@ -1,24 +1,35 @@
 package Sllacker.ChatBox.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Channel {
    @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
    private Long ChannelID;
    private Long UserID;
    private Long MessageID;
 
+   private String ChannelName;
+
+   @ManyToMany
+   @JoinTable(name = "channel_users",
+           joinColumns = @JoinColumn(name = "channel_userid", referencedColumnName = "channels_channelid"))
+   private List<User> channel_users = new ArrayList<>();
+
+
+
    public Channel(){}
 
-   public Channel(Long ChannelID, Long UserID, Long MessageID){
-    this.ChannelID = ChannelID;
-    this.UserID = UserID;
-    this.MessageID = MessageID;
+   public Channel(Long channelID, Long userID, Long messageID, String channelName) {
+      ChannelID = channelID;
+      UserID = userID;
+      MessageID = messageID;
+      ChannelName = channelName;
    }
 
-   
    public Long getChannelID() {return ChannelID;}
    public Long setChannelID() {return ChannelID;}
    
@@ -28,9 +39,17 @@ public class Channel {
    public Long getMessageID() {return MessageID;}
    public void setMessageID(Long MessageID) {this.MessageID = MessageID;}
 
+   public String getChannelName() {return ChannelName;}
 
+   public void setChannelName(String channelName) {ChannelName = channelName;}
 
+   public List<User> getChannel_users() {
+      return channel_users;
+   }
 
+   public void setChannel_users(List<User> channel_users) {
+      this.channel_users = channel_users;
+   }
 
 
     

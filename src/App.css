@@ -1,3 +1,12 @@
 .App {
-    background-image: linear-gradient(90deg, #5E5C5C, #9DC5C3);
+    background-image: linear-gradient(90deg, rgb(31, 41, 57), rgb(109, 146, 221));
+    width: 100vw;
+    height: 126vw;
+    margin: 0;
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: calc();
+}
+.Header {
+    background-image: linear-gradient(90deg, rgb(89, 121, 180), rgb(138, 165, 221));
 }
