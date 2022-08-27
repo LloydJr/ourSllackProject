@@ -1,5 +1,8 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +14,19 @@ public class User {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id", nullable = false)
-   private Long UserID;
-   private String UserName;
+   private Long userID;
+   private String userName;
    private String password;
 
 
    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
    private List<Message> messages = new ArrayList<>();
 
+   @ManyToOne
+   @JoinColumn(name = "channel")
+   private Channel channel;
+
+   @JsonManagedReference
    public List<Message> getMessages() {
       return messages;
 
@@ -32,19 +40,19 @@ public class User {
    }
 
    public Long getUserID() {
-      return UserID;
+      return userID;
    }
 
    public void setUserID(Long userID) {
-      UserID = userID;
+      this.userID = userID;
    }
 
    public String getUserName() {
-      return UserName;
+      return userName;
    }
 
    public void setUserName(String userName) {
-      UserName = userName;
+      this.userName = userName;
    }
 
    public String getPassword() {
