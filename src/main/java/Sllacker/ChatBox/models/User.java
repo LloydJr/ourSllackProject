@@ -1,5 +1,8 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ public class User {
    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
    private List<Message> messages = new ArrayList<>();
 
+   @JsonManagedReference
    public List<Message> getMessages() {
       return messages;
 
