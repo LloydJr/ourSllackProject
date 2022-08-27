@@ -16,7 +16,7 @@ public class Channel {
 
    @ManyToMany
    @JoinTable(name = "channel_users",
-           joinColumns = @JoinColumn(name = "channel_userid", referencedColumnName = "channels_channelid"))
+           joinColumns = @JoinColumn(name = "channel_userid"))
    private List<User> channel_users = new ArrayList<>();
 
 
