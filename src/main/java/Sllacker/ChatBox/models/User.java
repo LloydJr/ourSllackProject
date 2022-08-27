@@ -22,6 +22,10 @@ public class User {
    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
    private List<Message> messages = new ArrayList<>();
 
+   @ManyToOne
+   @JoinColumn(name = "channel")
+   private Channel channel;
+
    @JsonManagedReference
    public List<Message> getMessages() {
       return messages;
