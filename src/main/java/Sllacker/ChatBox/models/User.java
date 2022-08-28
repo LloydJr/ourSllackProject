@@ -13,7 +13,7 @@ import java.util.List;
 public class User {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "id", nullable = false)
+   @Column(name = "id", nullable = false, unique = true) //made id unique, i would like to do that for username as well
    private Long userID;
    private String userName;
    private String password;

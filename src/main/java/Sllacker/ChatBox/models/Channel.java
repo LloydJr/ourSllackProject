@@ -1,5 +1,7 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -13,7 +15,13 @@ public class Channel {
    private Long ChannelID;
    private String ChannelName;
 
-   @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+
+
+   @ManyToMany(fetch = FetchType.LAZY,
+   cascade = {CascadeType.PERSIST,
+   CascadeType.MERGE},
+   mappedBy = "channels")
+   @JsonIgnore
    private List<User> channel_users = new ArrayList<>();
 
 
@@ -34,15 +42,12 @@ public class Channel {
 
    public void setChannelName(String channelName) {ChannelName = channelName;}
 
-   @JsonManagedReference
    public List<User> getChannel_users() {
       return channel_users;
    }
 
    public void setChannel_users(List<User> channel_users) {
       this.channel_users = channel_users;
-//      for (User c: channel_users){
-//         c.setChannel(this);}
    }
 
 

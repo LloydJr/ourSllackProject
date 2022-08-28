@@ -8,12 +8,14 @@ import Sllacker.ChatBox.services.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@Controller
 public class ChannelController {
 
     private ChannelRepository channelRepository;
@@ -24,27 +26,47 @@ public class ChannelController {
         this.channelRepository = channelRepository;
         this.userRepository = userRepository;
     }
-
-
-
-    @GetMapping
-    public List<Channel> getChannels() {
-        return channelRepository.findAll();
+    @GetMapping("/channel")
+    public String getChannels() {
+        return"index";
     }
 
-    @PostMapping("/channel")//add channels
-//    public ResponseEntity<List<Channel>> addNewChannel(@PathVariable String userName, Channel channel) {
-//        return new ResponseEntity<List<Channel>>(HttpStatus.OK);
+
+//    @GetMapping("")
+//    public List<Channel> getChannels() {
+//        return channelRepository.findAll();
 //    }
 
+    @GetMapping("/channelShare")
+    public ResponseEntity<List<Channel>> listOfUserChannels() {
+        List<Channel> find = new ArrayList<>();
+        for(int i = 0; i<channelRepository.findAll().size(); i++){
+        }
 
-        public ResponseEntity<List<Channel>> addNewChannel(@RequestBody Channel channel) {channelRepository.save(channel);
-        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);}
+        return new ResponseEntity<>(find, HttpStatus.OK);
+    }
 
-    @GetMapping("/{channel_users}")
-    public ResponseEntity<List<User>> getUserList(Channel channel) {
-        channel.getChannel_users();
-        return new ResponseEntity<List<User>>(HttpStatus.OK);
+    @PostMapping("/channelnew/{userName}")//add channels
+    public ResponseEntity<List<Channel>> addNewChannel(@PathVariable String userName, User user, @RequestBody Channel channel) {
+        for(int i = 0; i<userRepository.findAll().size(); i++){
+            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+                user = userRepository.findAll().get(i);
+
+            }
+        }
+
+        channel.getChannel_users().add(user);
+        channelRepository.save(channel);
+        return new ResponseEntity<List<Channel>>(channelRepository.findAll(), HttpStatus.OK);
+    }
+
+
+//    public ResponseEntity<List<Channel>> addNewChannel(@RequestBody Channel channel) {channelRepository.save(channel);
+//        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);}
+
+    @GetMapping("/channels")
+    public ResponseEntity<List<Channel>> getUserList(Channel channel) {
+        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
     }
 
 
@@ -60,19 +82,23 @@ public class ChannelController {
     }
 
     @PutMapping("add/{channelName}/{userName}")
-    public void addUserToChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
+    public ResponseEntity<List<Channel>> addUserToChannel(@PathVariable String channelName, Channel channel, @PathVariable String userName, User user) {
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
             if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
                 channel = channelRepository.findAll().get(i);
             }
         }
-        for (int i = 0; i < userRepository.findAll().size(); i++) {
-            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+
+        for(int i = 0; i<userRepository.findAll().size(); i++){
+            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
                 user = userRepository.findAll().get(i);
-                }
             }
+        }
+
         channel.getChannel_users().add(user);
         channelRepository.save(channel);
+
+        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
     }
 
     @PutMapping("/remove/{userName}/{channelName}")
