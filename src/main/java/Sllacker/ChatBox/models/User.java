@@ -24,6 +24,7 @@ public class User {
 
    @ManyToOne
    @JoinColumn(name = "channel")
+   @JsonBackReference
    private Channel channel;
 
    @JsonManagedReference
@@ -62,4 +63,9 @@ public class User {
    public void setPassword(String password) {
       this.password = password;
    }
+
+   public Channel getChannel() {return channel;}
+
+   public void setChannel(Channel channel) {this.channel = channel;}
+
 }
