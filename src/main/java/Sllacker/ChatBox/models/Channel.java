@@ -1,5 +1,7 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +34,15 @@ public class Channel {
 
    public void setChannelName(String channelName) {ChannelName = channelName;}
 
+   @JsonManagedReference
    public List<User> getChannel_users() {
       return channel_users;
    }
 
    public void setChannel_users(List<User> channel_users) {
       this.channel_users = channel_users;
+      for (User c: channel_users){
+         c.setChannel(this);}
    }
 
 
