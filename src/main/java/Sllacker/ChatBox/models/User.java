@@ -22,11 +22,12 @@ public class User {
 
    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
    private List<Message> messages = new ArrayList<>();
-
+   @ManyToMany
    @JoinTable(name = "channels",
            joinColumns = {@JoinColumn(name = "user_id")},
            inverseJoinColumns = {@JoinColumn(name = "channel_id")}
    )
+   @JsonIgnore
    private List<Channel> channels = new ArrayList<>();
 
    @JsonManagedReference

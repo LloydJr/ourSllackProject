@@ -19,9 +19,8 @@ public class Channel {
 
    @ManyToMany(fetch = FetchType.LAZY,
    cascade = {CascadeType.PERSIST,
-   CascadeType.MERGE},
+   CascadeType.MERGE,CascadeType.REMOVE},
    mappedBy = "channels")
-   @JsonIgnore
    private List<User> channel_users = new ArrayList<>();
 
 
