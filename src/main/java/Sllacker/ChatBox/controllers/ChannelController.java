@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/channel")
 public class ChannelController {
 
     private ChannelRepository channelRepository;
@@ -33,14 +32,14 @@ public class ChannelController {
         return channelRepository.findAll();
     }
 
-    @PostMapping("/{userName}")//add channels
-    public ResponseEntity<List<Channel>> addNewChannel(@PathVariable String userName, Channel channel) {
-        return new ResponseEntity<List<Channel>>(HttpStatus.OK);
-    }
+    @PostMapping("/channel")//add channels
+//    public ResponseEntity<List<Channel>> addNewChannel(@PathVariable String userName, Channel channel) {
+//        return new ResponseEntity<List<Channel>>(HttpStatus.OK);
+//    }
 
 
-//    public ResponseEntity<List<Channel>> addNewChannel(@RequestBody Channel channel) {channelRepository.save(channel);
-//        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);}
+        public ResponseEntity<List<Channel>> addNewChannel(@RequestBody Channel channel) {channelRepository.save(channel);
+        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);}
 
     @GetMapping("/{channel_users}")
     public ResponseEntity<List<User>> getUserList(Channel channel) {
@@ -60,7 +59,7 @@ public class ChannelController {
         channelRepository.save(channel);
     }
 
-    @PutMapping("add/{userName}/{channelName}")
+    @PutMapping("add/{channelName}/{userName}")
     public void addUserToChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
             if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {

@@ -41,8 +41,8 @@ public class Channel {
 
    public void setChannel_users(List<User> channel_users) {
       this.channel_users = channel_users;
-      for (User c: channel_users){
-         c.setChannel(this);}
+//      for (User c: channel_users){
+//         c.setChannel(this);}
    }
 
 
