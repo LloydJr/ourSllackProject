@@ -16,7 +16,9 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id", nullable = false, unique = true) //made id unique, i would like to do that for username as well
    private Long userID;
+   @Column(nullable = false, unique = true, length = 10)
    private String userName;
+   @Column(nullable = false, unique = true, length = 64)
    private String password;
 
 
