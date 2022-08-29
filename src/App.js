@@ -9,19 +9,18 @@ import ChatBox from "./components/ChatBox";
 
 function App() {
   return (
-    <ChatBox/>
-    // <div className="p-3 App">
-    //   <Router>
-    //     <Header />
-    //     <Sidebar /> 
-    //     <Routes>
-    //       <Route path="/" exact>
-    //         {/* Chat */}
-    //       </Route>
-    //     </Routes> 
-    //     <ChatRoom />    
-    //   </Router>
-    // </div>
+     <div className="p-3 App">
+       <Router>
+         <Header />
+         <Sidebar />
+         <Routes>
+           <Route path="/" exact>
+             {/* Chat */}
+           </Route>
+         </Routes>
+         <ChatRoom />
+       </Router>
+     </div>
   );
 }
 
