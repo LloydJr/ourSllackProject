@@ -156,5 +156,47 @@ public class ChannelController {
             return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
         }
 
+    @GetMapping("/{userName}/{channelName}")
+    public ResponseEntity<List<Message>> getAllMessages(@PathVariable String userName, @PathVariable String channelName,
+                                                        Channel channel, User user){
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
+                channel = channelRepository.findAll().get(i);
+            }
+        }
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+                user = userRepository.findAll().get(i);
+            }
+        }
+
+        for(int i = 0; i<channel.getChannel_users().size(); i++){
+            if(channel.getChannel_users().get(i) == user && user.getMessages().get(i) == channel.getMessage().get(i)){
+                List<Message> newMessages = channel.getMessage();
+                return new ResponseEntity<>(newMessages, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/remove/{userName}/{channelName}")
+    public void removeUserRemoveChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
+                channel = channelRepository.findAll().get(i);
+            }
+        }
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+                user = userRepository.findAll().get(i);
+            }
+        }
+        channel.getChannel_users().remove(user);
+        user.getChannels().remove(channel);
+        channelRepository.save(channel);
+        userRepository.save(user);
+    }
+
+
 
 }
