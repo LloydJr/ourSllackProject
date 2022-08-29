@@ -12,10 +12,15 @@ public class DirectMessage {
 
     @Column(name = "user_id", nullable = false)
     private Long userId;
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "userId")
-    private List<User> listUser = new ArrayList<>();
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "messageId")
+    private List<Message> messageList = new ArrayList<>();
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST,
+                    CascadeType.MERGE},
+            mappedBy = "users")
+    private List<User> userList = new ArrayList<>();
     public Long getUserId() {
         return userId;
     }
@@ -24,19 +29,12 @@ public class DirectMessage {
         this.userId = userId;
     }
 
-    public List<User> getListUser() {
-        return listUser;
+    public List<Message> getListMessage() {
+        return messageList;
     }
 
-    public void setListUser(List<User> listUser) {
-        this.listUser = listUser;
+    public void setListMessage(List<Message> listUser) {
+        this.messageList = listUser;
     }
 
-    /**
-     * TODO Create an API, put message into userMessagingList
-     *      TODO that particular message.
-     *
-     * TODO ManyToOne multiple users can get one message
-     *      TODO -> Dm Entity will hold on to a list of users and tied to a message
-     * */
 }
