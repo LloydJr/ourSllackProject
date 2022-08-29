@@ -28,11 +28,11 @@ public class DirectMessageController {
         this.repository = repository;
     }
 
-    @GetMapping("/{userName}")
-    public ResponseEntity<List<DirectMessage>> getListDm() {
-        List<DirectMessage> directMessageList = repository.findAll();
-        return new ResponseEntity<>(directMessageList, HttpStatus.OK);
-    }
+//    @GetMapping("/{userName}")
+//    public ResponseEntity<List<DirectMessage>> getListDm() {
+//        List<DirectMessage> directMessageList = repository.findAll();
+//        return new ResponseEntity<>(directMessageList, HttpStatus.OK);
+//    }
     @GetMapping("/{userName}")
     public ResponseEntity<User> getDm(@PathVariable String name) {
         User user = null;

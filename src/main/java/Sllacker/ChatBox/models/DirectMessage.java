@@ -12,9 +12,9 @@ public class DirectMessage {
 
     @Column(name = "user_id", nullable = false)
     private Long userId;
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "userId")
-    private List<User> listUser = new ArrayList<>();
+//    @ManyToOne(cascade=CascadeType.ALL)
+//    @JoinColumn(name = "userId")
+//    private List<User> listUser = new ArrayList<>();
 
     public Long getUserId() {
         return userId;
@@ -24,13 +24,13 @@ public class DirectMessage {
         this.userId = userId;
     }
 
-    public List<User> getListUser() {
-        return listUser;
-    }
-
-    public void setListUser(List<User> listUser) {
-        this.listUser = listUser;
-    }
+//    public List<User> getListUser() {
+//        return listUser;
+//    }
+//
+//    public void setListUser(List<User> listUser) {
+//        this.listUser = listUser;
+//    }
 
     /**
      * TODO Create an API, put message into userMessagingList
