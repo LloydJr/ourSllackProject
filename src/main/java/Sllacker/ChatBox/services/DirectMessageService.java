@@ -19,22 +19,22 @@ public class DirectMessageService {
         return repository.findAll();
     }
 
-    public Object getDirectMessage(Long messagesId) {
-        return repository.findById(messagesId).get();
+    public DirectMessage getDirectMessage(Long userId) {
+        return repository.findById(userId).get();
     }
 
-    public Object postDirectMessage(DirectMessage dm) {
-        return repository.save(dm);
+    public DirectMessage postDirectMessage(DirectMessage userName) {
+        return repository.save(userName);
     }
 
-    public Object putDirectMessage(Long messageId, DirectMessage newDmData) {
-        return newDmData;
+    public DirectMessage putDirectMessage(DirectMessage message) {
+        return message;
     }
 
-    public Boolean delete(Long messageId) {
-        repository.deleteById(messageId);
-        return true;
-    }
+//    public Boolean delete(String userName) {
+//        repository.delete(userName);
+//        return true;
+//    }
 }
 
 /**

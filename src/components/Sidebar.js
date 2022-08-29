@@ -1,69 +1,98 @@
-import React, { useState } from 'react'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import * as FaIcons from 'react-icons/fa'
-import * as AiIcons from 'react-icons/ai'
-import { SideBarData } from './SideBarData'
-import SubMenu from './SubMenu'
+import App from '../App';
+import CreateIcon from '@mui/icons-material/Create';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import SidebarOption from './SidebarOption';
+import InsertCommentIcon from '@mui/icons-material/InsertComment';
+import InboxIcon from '@mui/icons-material/Inbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import AppsIcon from '@mui/icons-material/Apps';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AddIcon from '@mui/icons-material/Add';
 
 function Sidebar() {
-  const [sideBar, setSideBar] = useState(false);
-
-  const showSideBar = () => setSideBar(!sideBar);
-
   return (
-    <>
-    <Nav>
-      <NavIcon to='#'>
-        <FaIcons.FaBars onClick={showSideBar}/>
-      </NavIcon >
-      <SideBarNav sideBar={sideBar}>
-        <SideBarWrap>
-        <NavIcon to='#'>
-        <AiIcons.AiOutlineClose onClick={showSideBar}/>
-      </NavIcon >
-      {SideBarData.map((item, index) => {
-        return <SubMenu item={item} key={index} />
-      })}
-        </SideBarWrap>
-      </SideBarNav>
-    </Nav>
-    </>
+    <SidebarContainer>
+      <SidebarHeader>
+        <SidebarInfo>
+          <h2>Organization</h2>
+        </SidebarInfo>
+        <CreateIcon className='hover: opacity: 0.9 background-color: #87cefa'/>
+      </SidebarHeader>
+      <hr />
+      <SidebarOption Icon={InsertCommentIcon} title="Threads" />
+      <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
+      <SidebarOption Icon={DraftsIcon} title="Saved Items" />
+      <SidebarOption Icon={BookmarkBorderIcon} title="Channel Browser" />
+      <SidebarOption Icon={PeopleAltIcon} title="People & User Groups" />
+      <SidebarOption Icon={AppsIcon} title="Apps" />
+      <SidebarOption Icon={FileCopyIcon} title="File Browser" />
+      <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
+      <hr />
+      <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
+      <hr />
+      <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
+
+
+    </SidebarContainer>
   )
 }
 
 export default Sidebar
 
-const Nav = styled.div`
-background: #15171c;
-height: 80px;
+const SidebarContainer = styled.div`
+background-color:  rgb(89, 121, 180);
+color: white;
+flex: 0.3;
+border-top: 1px solid #49274b;
+max-width: 200px;
+max-height: full;
+
+>hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #b0c4de;
+}
+`;
+
+const SidebarHeader = styled.div`
 display: flex;
-justify-content: flex-start;
+border-bottom 1px #49274b;
+padding: 13px;
+
+> .MuiSvgIcon-root {
+  padding: px;
+  color: #49274b;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 999px;
+}
+`;
+
+const SidebarInfo = styled.div`
+flex: 1;
+
+:hover {
+  opacity: 0.9;
+  background-color: #87cefa;
+}
+
+>h2 {
+font size: 15px;
+font-weight: 900;
+margin-bottom: 5px;
+}
+
+>3 {
+  display: flex;
+font size: 13px;
+font-weight: 400;
 align-items: center;
-`;
+}
 
-const NavIcon = styled(Link)`
-margin-left: 2rem;
-font-size: 2rem;
-height: 80px;
-display: flex;
-justify-content: flex-start;
-align-itemns: center;
-`;
-
-const SideBarNav = styled.div`
-background: #15171c;
-width: 250px;
-height: 100vh;
-display: flex;
-justify-content: center;
-position: fixed;
-top: 0;
-left: {({sideBar}) = (sideBar ? '0' : '-100%')};
-transition: 350ms;
-z-index: 10;
-`;
-
-const SideBarWrap = styled.div`
-width: 100%;
 `;
