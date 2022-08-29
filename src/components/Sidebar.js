@@ -36,6 +36,8 @@ function Sidebar() {
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
       <hr />
+      <SidebarOption Icon={ExpandMoreIcon} title="Direct Message" />
+      <hr />
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
 
