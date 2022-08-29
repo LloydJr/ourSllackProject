@@ -88,16 +88,17 @@ public class ChannelController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{channelName}")
-    public ResponseEntity<String> deleteChannel (@PathVariable String channelName, Channel channel){
-        for (int i = 0; i < channelRepository.findAll().size(); i++) {
-            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
-                channel = channelRepository.findAll().get(i);
-            }
-        }
-        channelRepository.delete(channel);
-        return new ResponseEntity<>("Channel deleted", HttpStatus.OK);
-    }
+//    @DeleteMapping("/delete/{channelName}")
+//    public ResponseEntity<String> deleteChannel (@PathVariable String channelName, Channel channel){
+//        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+//            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
+//                channel = channelRepository.findAll().get(i);
+//            }
+//        }
+//
+//        channelRepository.delete(channel);
+//        return new ResponseEntity<>("Channel deleted", HttpStatus.OK);
+//    }
 
     @DeleteMapping("/delete/{channelID}")
     public ResponseEntity<Long> deleteChannelByID (@PathVariable Long channelID){
@@ -106,7 +107,7 @@ public class ChannelController {
     }
 
     @PutMapping("/{channelName}/{channelName1}")
-        public void editChannelName (@PathVariable String channelName, @PathVariable String channelName1, Channel
+        public ResponseEntity<List<Channel>> editChannelName (@PathVariable String channelName, @PathVariable String channelName1, Channel
         channel){
             for (int i = 0; i < channelRepository.findAll().size(); i++) {
                 if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
@@ -115,6 +116,7 @@ public class ChannelController {
             }
             channel.setChannelName(channelName1);
             channelRepository.save(channel);
+            return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
         }
 
         @PutMapping("add/{userName}/{channelName}")
@@ -132,6 +134,7 @@ public class ChannelController {
             }
             channel.getChannel_users().add(user);
             user.getChannels().add(channel);
+            userRepository.save(user);
             channelRepository.save(channel);
 
             return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
@@ -153,8 +156,33 @@ public class ChannelController {
             channel.getChannel_users().remove(user);
             user.getChannels().remove(channel);
             channelRepository.save(channel);
+            userRepository.save(user);
             return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
         }
+
+    @PutMapping("/delete/all/{channelName}")///needs work
+    public ResponseEntity<List<Channel>> removeAllUsersFromChannel (@PathVariable String channelName, Channel
+            channel, User user){
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
+                channel = channelRepository.findAll().get(i);
+            }
+        }
+
+
+                if (!channel.getChannel_users().isEmpty()){
+                    channel.getChannel_users().clear();
+                }
+
+//TODO forloop
+        channel.getChannel_users().remove(user);
+        user.getChannels().remove(channel);
+        userRepository.save(user);
+        channelRepository.save(channel);
+        return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
+    }
+
+
 
     @GetMapping("/{userName}/{channelName}")
     public ResponseEntity<List<Message>> getAllMessages(@PathVariable String userName, @PathVariable String channelName,
@@ -179,23 +207,7 @@ public class ChannelController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/remove/{userName}/{channelName}")
-    public void removeUserRemoveChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
-        for (int i = 0; i < channelRepository.findAll().size(); i++) {
-            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
-                channel = channelRepository.findAll().get(i);
-            }
-        }
-        for (int i = 0; i < userRepository.findAll().size(); i++) {
-            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
-                user = userRepository.findAll().get(i);
-            }
-        }
-        channel.getChannel_users().remove(user);
-        user.getChannels().remove(channel);
-        channelRepository.save(channel);
-        userRepository.save(user);
-    }
+
 
 
 
