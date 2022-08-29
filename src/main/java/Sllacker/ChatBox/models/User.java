@@ -16,7 +16,9 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id", nullable = false, unique = true) //made id unique, i would like to do that for username as well
    private Long userID;
+   @Column(nullable = false, unique = true, length = 10)
    private String userName;
+   @Column(nullable = false, unique = true, length = 64)
    private String password;
 
 
@@ -30,6 +32,13 @@ public class User {
            inverseJoinColumns = {@JoinColumn(name = "channel_id")}
    )
    private List<Channel> channels = new ArrayList<>();
+
+   @ManyToMany
+   @JoinTable(name = "user_users",
+           joinColumns = {@JoinColumn(name = "user_id")},
+           inverseJoinColumns = {@JoinColumn(name = "user_userid")}
+   )
+   private List<DirectMessage> users = new ArrayList<>();
 
    @JsonManagedReference
    public List<Message> getMessages() {
@@ -74,5 +83,13 @@ public class User {
 
    public void setChannels(List<Channel> channels) {
       this.channels = channels;
+   }
+
+   public List<DirectMessage> getUsers() {
+      return users;
+   }
+
+   public void setUsers(List<DirectMessage> users) {
+      this.users = users;
    }
 }
