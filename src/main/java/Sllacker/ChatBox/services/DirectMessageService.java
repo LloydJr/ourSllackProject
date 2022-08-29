@@ -36,7 +36,3 @@ public class DirectMessageService {
 //        return true;
 //    }
 }
-
-/**
- *This still needs to be refactored and update to the latest version of the code
- **/
