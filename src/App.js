@@ -11,14 +11,12 @@ function App() {
     <div className="p-3 App">
       <Router>
         <Header />
-        {/* <Sidebar />  */}
-        <Navigation />
+        <Sidebar /> 
         <Routes>
           <Route path="/" exact>
             {/* Chat */}
           </Route>
         </Routes> 
-         <MuiAccordion />  
         <ChatRoom />    
       </Router>
     </div>

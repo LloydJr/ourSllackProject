@@ -3,6 +3,8 @@ import imageSllacker from './images/sllacker.png'
 import userIcon from './images/149071.png'
 import searchIcon from './images/1024px-Search_Icon.svg.png'
 import App from '../App'
+import styled from 'styled-components'
+
 
 function Header() {
   return (
@@ -24,3 +26,19 @@ function Header() {
 }
 
 export default Header
+
+const HeaderContainer = styled.div`
+display: flex;
+position: fixed;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+`;
+
+const HeaderLeft = styled.div`
+flex: 0.3;
+display: flex;
+align-items: center;
+margin-left: 20px;
+`;
