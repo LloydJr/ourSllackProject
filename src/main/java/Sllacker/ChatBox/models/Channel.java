@@ -1,13 +1,12 @@
 package Sllacker.ChatBox.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@chid")
 @Entity
 public class Channel {
    @Id
@@ -18,10 +17,15 @@ public class Channel {
 
 
    @ManyToMany(fetch = FetchType.LAZY,
-   cascade = {CascadeType.PERSIST,
-   CascadeType.MERGE,CascadeType.REMOVE},
-   mappedBy = "channels")
+           cascade = {CascadeType.PERSIST,
+                   CascadeType.MERGE},
+           mappedBy = "channels")
    private List<User> channel_users = new ArrayList<>();
+
+   @OneToMany(mappedBy = "channel", cascade = CascadeType.ALL)
+   private List<Message> message = new ArrayList<>();
+
+
 
 
 
@@ -35,7 +39,7 @@ public class Channel {
 
    public Long getChannelID() {return ChannelID;}
    public Long setChannelID() {return ChannelID;}
-   
+
 
    public String getChannelName() {return ChannelName;}
 
@@ -49,6 +53,11 @@ public class Channel {
       this.channel_users = channel_users;
    }
 
+   public List<Message> getMessage() {
+      return message;
+   }
 
-    
+   public void setMessage(List<Message> message) {
+      this.message = message;
+   }
 }

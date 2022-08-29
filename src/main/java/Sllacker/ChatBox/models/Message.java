@@ -1,13 +1,13 @@
 package Sllacker.ChatBox.models;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-
-
 @Entity
 @Table(name = "message")
 public class Message {
@@ -23,6 +23,19 @@ public class Message {
     @JoinColumn(name = "user")
     @JsonBackReference
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "channel_channel_id", referencedColumnName = "channelid")
+    private Channel channel;
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
+
 
     public User getUser() {
         return user;
