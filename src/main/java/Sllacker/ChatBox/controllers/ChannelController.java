@@ -100,11 +100,11 @@ public class ChannelController {
 //        return new ResponseEntity<>("Channel deleted", HttpStatus.OK);
 //    }
 
-    @DeleteMapping("/delete/{channelID}")
-    public ResponseEntity<Long> deleteChannelByID (@PathVariable Long channelID){
-        channelRepository.deleteById(channelID);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+//    @DeleteMapping("/delete/{channelID}")
+//    public ResponseEntity<Long> deleteChannelByID (@PathVariable Long channelID){
+//        channelRepository.deleteById(channelID);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
 
     @PutMapping("/{channelName}/{channelName1}")
         public ResponseEntity<List<Channel>> editChannelName (@PathVariable String channelName, @PathVariable String channelName1, Channel
@@ -153,30 +153,36 @@ public class ChannelController {
                     user = userRepository.findAll().get(i);
                 }
             }
-            channel.getChannel_users().remove(user);
+            channel.getChannel_users().clear();
             user.getChannels().remove(channel);
             channelRepository.save(channel);
             userRepository.save(user);
             return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
         }
 
-    @PutMapping("/delete/all/{channelName}")///needs work
+    @PutMapping("/remove/all/{channelName}")///needs work
     public ResponseEntity<List<Channel>> removeAllUsersFromChannel (@PathVariable String channelName, Channel
-            channel, User user){
+            channel, User user, String userName){
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
-            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())){
                 channel = channelRepository.findAll().get(i);
             }
         }
-
+        List<User> channelUsers = channel.getChannel_users();
 
                 if (!channel.getChannel_users().isEmpty()){
                     channel.getChannel_users().clear();
                 }
 
-//TODO forloop
-        channel.getChannel_users().remove(user);
-        user.getChannels().remove(channel);
+        for (int i = 0; i < channelUsers.size(); i++) {
+            if (String.valueOf(channelUsers.get(i)).equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
+                user = userRepository.findAll().get(i);
+                user.getChannels().remove(channel);
+            }
+
+        }
+
+
         userRepository.save(user);
         channelRepository.save(channel);
         return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
