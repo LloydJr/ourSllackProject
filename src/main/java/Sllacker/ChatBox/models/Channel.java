@@ -12,6 +12,7 @@ public class Channel {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long ChannelID;
+   @Column(name="channelname",unique = true)
    private String ChannelName;
 
 
