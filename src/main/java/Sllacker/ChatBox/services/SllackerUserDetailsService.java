@@ -14,8 +14,8 @@ public class SllackerUserDetailsService implements UserDetailsService {
     private UserRepository userRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByUsername(username);
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        User user = userRepo.findByUsername(userName);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
