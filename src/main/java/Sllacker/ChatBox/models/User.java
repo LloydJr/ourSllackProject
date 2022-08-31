@@ -33,6 +33,13 @@ public class User {
    )
    private List<Channel> channels = new ArrayList<>();
 
+   @ManyToMany
+   @JoinTable(name = "user_users",
+           joinColumns = {@JoinColumn(name = "user_id")},
+           inverseJoinColumns = {@JoinColumn(name = "user_userid")}
+   )
+   private List<DirectMessage> directMessages = new ArrayList<>();
+
    @JsonManagedReference
    public List<Message> getMessages() {
       return messages;
@@ -76,5 +83,13 @@ public class User {
 
    public void setChannels(List<Channel> channels) {
       this.channels = channels;
+   }
+
+   public List<DirectMessage> getDirectMessages() {
+      return directMessages;
+   }
+
+   public void setDirectMessages(List<DirectMessage> directMessages) {
+      this.directMessages = directMessages;
    }
 }
