@@ -14,16 +14,21 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
+import ChannelPage from './ChannelPage';
+
+
 
 function Sidebar() {
   return (
     <SidebarContainer>
+
       <SidebarHeader>
         <SidebarInfo>
           <h2>Organization</h2>
         </SidebarInfo>
         <CreateIcon className='hover: opacity: 0.9 background-color: #87cefa'/>
       </SidebarHeader>
+
       <hr />
       <SidebarOption Icon={InsertCommentIcon} title="Threads" />
       <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
@@ -33,15 +38,17 @@ function Sidebar() {
       <SidebarOption Icon={AppsIcon} title="Apps" />
       <SidebarOption Icon={FileCopyIcon} title="File Browser" />
       <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
+      
       <hr />
+      
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Direct Message" />
       <hr />
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
-
     </SidebarContainer>
+
   )
 }
 
