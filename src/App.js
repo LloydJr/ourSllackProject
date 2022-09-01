@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MuiAccordion from "./components/MuiAccordion";
 import ChatRoom from "./components/ChatRoom";
 import ChannelPage from "./components/ChannelPage";
+import Footer from "./components/Footer";
+import About from "./components/Pages/About";
 
 function App() {
   return (
@@ -13,15 +15,17 @@ function App() {
       
       <Router>
         <Header />
+        <grid>
         <ChannelPage/>
 
         <Sidebar />
-        
+        </grid>
         <Routes>
-          <Route path="/" exact>
+          <Route path="/about" element={<About />} >
           </Route>
         </Routes> 
         
+        <Footer />
       </Router>
     </div>
    
