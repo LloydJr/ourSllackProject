@@ -5,6 +5,7 @@ function NavigationMenu(props) {
   return (
     <div>
     <span className="font-bold py-3">
+                Sllacker
             </span>
             <ul>
         <li>

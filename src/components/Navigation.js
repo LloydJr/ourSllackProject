@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import NavigationMenu from './NavigationMenu';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import userIcon from './images/149071.png'
+
 
 
 function Navigation() {
@@ -24,7 +24,7 @@ function Navigation() {
   return (
     <nav>
         <span className="fa-lg">
-        <i class="fa-solid fa-bars" onClick={() => setShowMenu(!showMenu)}></i>
+        <i class="fa-solid fa-user" onClick={() => setShowMenu(!showMenu)}></i>
         </span>
 
         { maskTransitions((styles, item) => item && 
@@ -51,7 +51,7 @@ function Navigation() {
 
     
     </nav>
-  );
+  )
 }
 
 export default Navigation

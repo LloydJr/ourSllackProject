@@ -8,6 +8,8 @@ import ChatRoom from "./components/ChatRoom";
 import ChannelPage from "./components/ChannelPage";
 import {container} from "./App.css"
 import Box from '@mui/material/Box';
+import Footer from "./components/Footer";
+import About from "./components/Pages/About";
 
 
 function App() {
@@ -31,10 +33,11 @@ function App() {
         <div></div>
         <br></br>
         <Routes>
-          <Route path="/" exact>
+          <Route path="/about" element={<About />} >
           </Route>
         </Routes> 
         
+        <Footer />
       </Router>
     </div>
    
