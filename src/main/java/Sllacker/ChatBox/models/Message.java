@@ -16,6 +16,7 @@ public class Message {
     @Column(name = "id", nullable = false)
     private Long id;
     private String message;
+    private String userName;
     @CreationTimestamp
     private Timestamp date;
 
@@ -70,6 +71,12 @@ public class Message {
         this.date = date;
     }
 
+    public String getUserName() {
+        return userName;
+    }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
 

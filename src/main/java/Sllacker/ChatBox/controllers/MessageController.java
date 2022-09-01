@@ -30,19 +30,20 @@ public class MessageController {
     private List<Message> messageList = new ArrayList<>();
 
     @Autowired
-    public void Repo(MessageRepository messageRepository, UserRepository userRepository, ChannelRepository channelRepository){
+    public void Repo(MessageRepository messageRepository, UserRepository userRepository, ChannelRepository channelRepository) {
         this.userRepository = userRepository;
         this.messageRepository = messageRepository;
         this.channelRepository = channelRepository;
     }
 
     @PostMapping("/{userName}")
-    public @ResponseBody ResponseEntity<Message> create(@PathVariable String userName, @RequestBody Message message, User user, Channel channel){
+    public @ResponseBody ResponseEntity<Message> create(@PathVariable String userName, @RequestBody Message message, User user, Channel channel) {
 
-        for(int i = 0; i<userRepository.findAll().size(); i++){
-            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
                 user = userRepository.findAll().get(i);
                 message.setUser(user);
+                message.setUserName(userName);
                 user.getMessages().add(message);
                 messageRepository.save(message);
             }
@@ -56,35 +57,41 @@ public class MessageController {
     @PostMapping("/{userName}/{channelName}")
     public @ResponseBody ResponseEntity<Message> createMessageAndPost(@PathVariable String userName, @PathVariable String channelName,
                                                                       @RequestBody Message message,
-                                                                      User user, Channel channel){
-        for(int i = 0; i<userRepository.findAll().size(); i++){
-            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())  ){
+                                                                      User user, Channel channel) {
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
                 user = userRepository.findAll().get(i);
             }
         }
 
-        for(int i = 0; i<channelRepository.findAll().size(); i++){
-            if(channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())){
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
                 channel = channelRepository.findAll().get(i);
             }
         }
 
-         message.setUser(user);
-         message.setChannel(channel);
-         user.getMessages().add(message);
-         channel.getMessage().add(message);
-         messageRepository.save(message);
-         channelRepository.save(channel);
-         userRepository.save(user);
+        message.setUser(user);
+        message.setChannel(channel);
+        user.getMessages().add(message);
+        channel.getMessage().add(message);
+        messageRepository.save(message);
+        for (int i = 0; i < messageRepository.findAll().size(); i++) {
+            if (messageRepository.findAll().get(i).equals(message)) {
+                message.setUserName(userName);
+                messageRepository.save(message);
+            }
+        }
+        channelRepository.save(channel);
+        userRepository.save(user);
 
         return new ResponseEntity<>(message, HttpStatus.OK);
 
     }
 
     @PostMapping("/{channelName}/new")
-    public @ResponseBody ResponseEntity<List<Message>> createMessage(@PathVariable String channelName, @RequestBody Message message, Channel channel){
-        for(int i = 0; i<channelRepository.findAll().size(); i++){
-            if(channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName()) ){
+    public @ResponseBody ResponseEntity<List<Message>> createMessage(@PathVariable String channelName, @RequestBody Message message, Channel channel) {
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
                 channel = channelRepository.findAll().get(i);
                 message.setChannel(channel);
                 channel.getMessage().add(message);
@@ -93,26 +100,27 @@ public class MessageController {
             }
         }
 
+
         return new ResponseEntity<>(messageRepository.findAll(), HttpStatus.OK);
 
     }
 
 
     @GetMapping("/{channelName}/{userName}/messagelist")
-    public ResponseEntity<List<Message>> allMessagesInChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user){
-        for(int i = 0; i<channelRepository.findAll().size(); i++){
-            if(channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())){
+    public ResponseEntity<List<Message>> allMessagesInChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
                 channel = channelRepository.findAll().get(i);
             }
         }
-        for(int i = 0; i<userRepository.findAll().size(); i++){
-            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
                 user = userRepository.findAll().get(i);
             }
         }
 
-        for(int i = 0; i<channel.getChannel_users().size(); i++){
-            if(channel.getChannel_users().contains(user)){
+        for (int i = 0; i < channel.getChannel_users().size(); i++) {
+            if (channel.getChannel_users().contains(user)) {
                 List<Message> messages = channel.getMessage();
                 return new ResponseEntity<>(messages, HttpStatus.OK);
             }
@@ -122,9 +130,9 @@ public class MessageController {
     }
 
     @GetMapping("/{channelName}/messagelist")
-    public ResponseEntity<List<Message>> allMessagesInChannel(@PathVariable String channelName, Channel channel, User user){
-        for(int i = 0; i<channelRepository.findAll().size(); i++){
-            if(channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())){
+    public ResponseEntity<List<Message>> allMessagesInChannel(@PathVariable String channelName, Channel channel, User user) {
+        for (int i = 0; i < channelRepository.findAll().size(); i++) {
+            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
                 channel = channelRepository.findAll().get(i);
                 return new ResponseEntity<>(channel.getMessage(), HttpStatus.OK);
             }
@@ -134,11 +142,10 @@ public class MessageController {
     }
 
 
-
     @GetMapping("/{userName}")
-    public @ResponseBody ResponseEntity<User> findUserName(User user, @PathVariable String userName){
-        for(int i = 0; i<userRepository.findAll().size(); i++){
-            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+    public @ResponseBody ResponseEntity<User> findUserName(User user, @PathVariable String userName) {
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
                 user = userRepository.findAll().get(i);
             }
         }
@@ -147,22 +154,22 @@ public class MessageController {
 
 
     @DeleteMapping("/{userName}/{message}")
-    public @ResponseBody ResponseEntity<User> findUserNameMessage(@PathVariable String userName, @PathVariable String message, Message messages, User user){
-        for(int i = 0; i<userRepository.findAll().size(); i++){
-            if(userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())){
+    public @ResponseBody ResponseEntity<User> findUserNameMessage(@PathVariable String userName, @PathVariable String message, Message messages, User user) {
+        for (int i = 0; i < userRepository.findAll().size(); i++) {
+            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
                 user = userRepository.findAll().get(i);
             }
         }
-        for(int i = 0; i<messageRepository.findAll().size(); i++){
-            if(message.equalsIgnoreCase(messageRepository.findAll().get(i).getMessage())){
+        for (int i = 0; i < messageRepository.findAll().size(); i++) {
+            if (message.equalsIgnoreCase(messageRepository.findAll().get(i).getMessage())) {
                 messages = messageRepository.findAll().get(i);
             }
         }
 
-        for(int i =0; i<user.getMessages().size(); i++)
-        if(user.getMessages().get(i).getMessage().equalsIgnoreCase(message)) {
-            user.getMessages().clear();
-        }
+        for (int i = 0; i < user.getMessages().size(); i++)
+            if (user.getMessages().get(i).getMessage().equalsIgnoreCase(message)) {
+                user.getMessages().clear();
+            }
 
         user.getMessages().remove(messages);
         messageRepository.delete(messages);

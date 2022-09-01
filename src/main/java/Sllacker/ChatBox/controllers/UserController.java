@@ -13,6 +13,7 @@ import java.util.List;
 
 
 @Controller
+@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/user")
 public class UserController {
 
