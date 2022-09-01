@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@CrossOrigin("http://localhost:3000/")
 @RequestMapping("/dm")
 public class DirectMessageController {
 
@@ -90,20 +91,20 @@ public class DirectMessageController {
 //                message.setUser(user1);
 //                user.getMessages().add(message);
 //                user1.getMessages().add(message);
-                dm.getMessageList().add(message);
+        dm.getMessageList().add(message);
 //                dm.getUserList().add(user);
 //                dm.getUserList().add(user1);
 //                user.getDirectMessages().add(dm);
 //                user1.getDirectMessages().add(dm);
-                messageRepository.save(message);
+        messageRepository.save(message);
 //                userRepository.save(user);
 //                userRepository.save(user1);
-                repository.save(dm);
+        repository.save(dm);
 
 
         return new ResponseEntity<>(dm, HttpStatus.OK);
     }
-//    @PutMapping("/{userName}")
+    //    @PutMapping("/{userName}")
 //    public ResponseEntity<DirectMessage> putDm(@PathVariable String userName, User user, DirectMessage dm, DirectMessageController postDm) {
 //        postDm.createDm(userName, user, dm);
 //
