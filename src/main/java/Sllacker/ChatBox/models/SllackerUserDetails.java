@@ -23,7 +23,7 @@ public class SllackerUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getUsername();
+        return user.getUserName();
     }
 
     @Override

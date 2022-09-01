@@ -4,6 +4,7 @@ import userIcon from './images/149071.png'
 import searchIcon from './images/1024px-Search_Icon.svg.png'
 import App from '../App'
 import styled from 'styled-components'
+import ChannelPage from './ChannelPage'
 
 
 function Header() {
@@ -21,6 +22,7 @@ function Header() {
         <input placeholder="Search" class="w-25"/>
     </div>
     </header>
+    
     
   )
 }
