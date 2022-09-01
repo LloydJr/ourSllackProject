@@ -6,8 +6,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MuiAccordion from "./components/MuiAccordion";
 import ChatRoom from "./components/ChatRoom";
 import ChannelPage from "./components/ChannelPage";
-import Footer from "./components/Footer";
-import About from "./components/Pages/About";
+import {container} from "./App.css"
+import Box from '@mui/material/Box';
+
 
 function App() {
   return (
@@ -15,11 +16,20 @@ function App() {
       
       <Router>
         <Header />
-        <grid>
-        <ChannelPage/>
-
-        <Sidebar />
+        <Box sx={{width: '100%'}}>
+        <grid className="container" columnSpacing = {{xs:1000}} >
+          <div className="item">
+          <Sidebar />
+          </div>
+          <div className="item">
+          <ChannelPage/>
+          </div>
         </grid>
+        </Box>
+        
+        
+        <div></div>
+        <br></br>
         <Routes>
           <Route path="/about" element={<About />} >
           </Route>
