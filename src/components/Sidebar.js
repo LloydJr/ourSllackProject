@@ -59,6 +59,7 @@ max-height: full;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid #b0c4de;
+  object-fit: contain;
 }
 `;
 
