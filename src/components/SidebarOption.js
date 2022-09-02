@@ -31,9 +31,9 @@ function SidebarOption({Icon, title, addChannelOption}) {
 export default SidebarOption
 
 const SidebarOptionContainer = styled.div`
-dipsly: Flex;
+dipsly: Flex;;
 font-size: 12px;
-align-items: ceder;
+align-items: center;
 padding-left: 2px;
 cursor: pointer;
 
