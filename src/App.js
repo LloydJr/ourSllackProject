@@ -14,22 +14,22 @@ import About from "./components/Pages/About";
 
 function App() {
   return (
-    <div className="p-3 App">
+    <div className="App">
       
       <Router>
         <Header />
         <Box sx={{width: '100%'}}>
         <grid className="container" columnSpacing = {{xs:1000}} >
           <div className="item">
-          <Sidebar />
+          {/* <Sidebar /> */}
           </div>
           <div className="item">
-          <ChannelPage/>
+          {/* <ChannelPage/> */}
           </div>
         </grid>
         </Box>
         
-        
+      
         <div></div>
         <br></br>
         <Routes>

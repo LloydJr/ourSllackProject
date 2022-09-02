@@ -20,7 +20,7 @@ import ChannelPage from './ChannelPage';
 
 function Sidebar() {
   return (
-    <SidebarContainer>
+    <SidebarContainer className='fixed z-0'>
 
       <SidebarHeader>
         <SidebarInfo>
@@ -40,7 +40,6 @@ function Sidebar() {
       <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
       
       <hr />
-      
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Direct Message" />
@@ -58,13 +57,11 @@ const SidebarContainer = styled.div`
 background-color:  rgb(89, 121, 180);
 color: white;
 flex: 0.3;
-border-top: 1px solid #49274b;
-max-width: 200px;
-max-height: full;
+margin-top: 8vh;
 
 >hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 25px;
   border: 1px solid #b0c4de;
   object-fit: contain;
 }
@@ -72,7 +69,7 @@ max-height: full;
 
 const SidebarHeader = styled.div`
 display: flex;
-border-bottom 1px #49274b;
+border-bottom 1x #49274b;
 padding: 13px;
 
 > .MuiSvgIcon-root {
