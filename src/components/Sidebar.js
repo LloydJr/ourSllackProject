@@ -14,16 +14,21 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
+import ChannelPage from './ChannelPage';
+
+
 
 function Sidebar() {
   return (
-    <SidebarContainer>
+    <SidebarContainer className='fixed z-0'>
+
       <SidebarHeader>
         <SidebarInfo>
           <h2>Organization</h2>
         </SidebarInfo>
         <CreateIcon className='hover: opacity: 0.9 background-color: #87cefa'/>
       </SidebarHeader>
+
       <hr />
       <SidebarOption Icon={InsertCommentIcon} title="Threads" />
       <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
@@ -33,6 +38,7 @@ function Sidebar() {
       <SidebarOption Icon={AppsIcon} title="Apps" />
       <SidebarOption Icon={FileCopyIcon} title="File Browser" />
       <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
+      
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
       <hr />
@@ -40,8 +46,8 @@ function Sidebar() {
       <hr />
       <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
 
-
     </SidebarContainer>
+
   )
 }
 
@@ -51,20 +57,19 @@ const SidebarContainer = styled.div`
 background-color:  rgb(89, 121, 180);
 color: white;
 flex: 0.3;
-border-top: 1px solid #49274b;
-max-width: 200px;
-max-height: full;
+margin-top: 8vh;
 
 >hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 25px;
   border: 1px solid #b0c4de;
+  object-fit: contain;
 }
 `;
 
 const SidebarHeader = styled.div`
 display: flex;
-border-bottom 1px #49274b;
+border-bottom 1x #49274b;
 padding: 13px;
 
 > .MuiSvgIcon-root {

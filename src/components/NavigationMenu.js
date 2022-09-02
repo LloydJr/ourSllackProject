@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 function NavigationMenu(props) {
   return (
     <div>
-    <span className="font-bold py-3">
+    <span className="text-black font-bold py-3">
+                User Name
             </span>
             <ul>
         <li>
