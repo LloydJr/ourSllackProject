@@ -10,6 +10,8 @@ import {container} from "./App.css"
 import Box from '@mui/material/Box';
 import Footer from "./components/Footer";
 import About from "./components/Pages/About";
+import DirectMessage from "./components/Pages/DirectMessage"
+import Channles from "./components/Pages/Channles";
 
 
 function App() {
@@ -33,11 +35,12 @@ function App() {
         <div></div>
         <br></br>
         <Routes>
-          <Route path="/about" element={<About />} >
-          </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/direct_messages" element={<DirectMessage />} />
+          <Route path="channel_browser" element={<Channles />} />
         </Routes> 
         
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
    
