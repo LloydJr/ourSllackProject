@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import About from "./components/ChannelPage";
 
 import "./styles.css";
 
