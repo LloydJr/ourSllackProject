@@ -15,6 +15,7 @@ import UserComponent from './components/UserComponent';
 import App1 from './components/App1'
 import DirectMessage from "./components/Pages/DirectMessage"
 import Channles from "./components/Pages/Channles";
+import UserProfile from './components/Pages/UserProfile';
 
 
 function App() {
@@ -38,12 +39,14 @@ function App() {
         <div></div>
         <br></br>
         <Routes>
+          <Route exact path="/" element={<App1 />}/>
+          <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
           <Route path="channel_browser" element={<Channles />} />
         </Routes> 
         
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
    

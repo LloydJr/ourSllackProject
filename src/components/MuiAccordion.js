@@ -7,7 +7,46 @@ function MuiAccordion() {
       
       <Accordion>
         <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />}>
-          <Typography>Channels</Typography>
+          <Typography>Fitru</Typography>
+          </AccordionSummary> 
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Quidem nulla, nam blanditiis omnis assumenda architecto accusamus
+              modi rerum distinctio culpa quis officia molestiae sint vitae ea
+               cumque facilis dolore animi.
+               </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />}>
+          <Typography>Lloyd</Typography>
+          </AccordionSummary> 
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Quidem nulla, nam blanditiis omnis assumenda architecto accusamus
+              modi rerum distinctio culpa quis officia molestiae sint vitae ea
+               cumque facilis dolore animi.
+               </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />}>
+          <Typography>Dejen</Typography>
+          </AccordionSummary> 
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Quidem nulla, nam blanditiis omnis assumenda architecto accusamus
+              modi rerum distinctio culpa quis officia molestiae sint vitae ea
+               cumque facilis dolore animi.
+               </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />}>
+          <Typography>Tenae</Typography>
           </AccordionSummary> 
         <AccordionDetails>
           <Typography>

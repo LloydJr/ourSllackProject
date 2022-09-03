@@ -24,7 +24,7 @@ function Navigation() {
   return (
     <nav>
         <span className="fa-lg">
-        <i class="fa-solid fa-user" onClick={() => setShowMenu(!showMenu)}></i>
+        <i class="fa-solid fa-bars" onClick={() => setShowMenu(!showMenu)}></i>
         </span>
 
         { maskTransitions((styles, item) => item && 
