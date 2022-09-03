@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import {useState} from 'react'
 import axios from 'axios';
 import styled from 'styled-components';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function ChannelPage() {
     // const inputRef = useRef(null);
@@ -23,12 +25,13 @@ function ChannelPage() {
     //         console.log(err);
     //     }
     // }
+    
 
     const [data, setData] = useState([])
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/messages/SuperManConvo/`)
+        axios.get(`http://localhost:8080/channel/messages/RandomConv/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
@@ -38,7 +41,7 @@ function ChannelPage() {
     // http://localhost:8080/channel/messages/{channelName}/
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/SpawnTalk/`)
+        axios.get(`http://localhost:8080/channel/RandomConv/`)
         .then(res => 
             {
             console.log("Getting from :::::", res.data)
@@ -62,13 +65,25 @@ function ChannelPage() {
     })
 
     const arr = data.map((data, index) => {
-        
         return (
-            <tr>
+           
+            <div class="py-8 px-8 max-w-sm mx-auto rounded-xl shadow-lg space-y-2 sm:py-4   sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            <div class="text-center space-y-2 sm:text-left">
+              <div class="space-y-0.5">
+                <p class="text-lg text-black font-semibold">
+                {data.userName}
+                </p>
+                <p class="text-slate-500 font-medium">
+                {data.message}      </p>
+              </div>
+              {/* <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button> */}
+            </div>
+          </div>
+            // <tr>
               
-            <td>{data.userName}</td>
-             <td>{data.message}</td>
-            </tr>
+            // <td>{data.userName}</td>
+            //  <td>{data.message}</td>
+            // </tr>
             
         )
     })
@@ -76,7 +91,7 @@ function ChannelPage() {
     function refreshPage() {
         window.location.reload(false);
     }
-    
+  
 
 
     // useEffect(() => {
@@ -100,9 +115,8 @@ function ChannelPage() {
 
     return (
       <h1 style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        top: '0%',
+        position: 'absolute'
         
       }
       }><div>
@@ -112,15 +126,27 @@ function ChannelPage() {
            justifyConent: 'center',
        }}>
        <tr>
-           <th>UserName</th>
-           <th>Message</th>
-           
-           </tr>
+        </tr>
        {arr}
 
        </table >
+       <div className='w-96'>
+        
+       </div>
        <div>
-           <input  placeholder='Type here'></input>
+        <Box
+        sx={{
+            width: 500,
+            maxWidth: '100%'
+        }}>
+       <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue="Default Value"
+        />
+           </Box>
            <button onClick={refreshPage}>Send</button>
            </div>
                {/* <input placeholder={'Message #ROOM'}></input>
