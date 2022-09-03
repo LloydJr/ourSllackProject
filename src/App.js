@@ -1,3 +1,4 @@
+import react from 'react';
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import "./App.css"
@@ -10,6 +11,8 @@ import {container} from "./App.css"
 import Box from '@mui/material/Box';
 import Footer from "./components/Footer";
 import About from "./components/Pages/About";
+import UserComponent from './components/UserComponent';
+import App1 from './components/App1'
 import DirectMessage from "./components/Pages/DirectMessage"
 import Channles from "./components/Pages/Channles";
 
