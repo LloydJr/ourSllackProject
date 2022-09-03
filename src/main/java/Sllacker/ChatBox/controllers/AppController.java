@@ -14,22 +14,25 @@ import java.util.List;
 @Controller
 public class AppController {
     @Autowired
-private UserRepository repo;
+    private UserRepository repo;
+
     @GetMapping("")
     public String landingPage() {
         return "index";
     }
 
     @GetMapping("/sign-up")
-    public String showSignUpForm(Model model){
+    public String showSignUpForm(Model model) {
         model.addAttribute("user", new User());
         return "signup_form";
     }
+
     @PostMapping("/process_register")
-    public String processRegistration(User user){
+    public String processRegistration(User user) {
         repo.save(user);
         return "signup_success";
     }
+
     @GetMapping("/list_users")
     public String listUsers(Model model) {
         List<User> listUsers = repo.findAll();
@@ -37,9 +40,10 @@ private UserRepository repo;
 
         return "Users";
     }
+
     @GetMapping("/channels")
     public String showChannelPage(Model model) {
-        model.addAttribute("channels", new Channel());
+        model.addAttribute("channel", new Channel());
         return "channel";
     }
 }

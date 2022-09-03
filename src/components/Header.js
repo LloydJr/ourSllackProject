@@ -8,19 +8,30 @@ import ChannelPage from './ChannelPage'
 import Navigation from './Navigation'
 
 
+
 function Header() {
   return (
-    <header className="border-b p-3 flex justify-between items-center Header">
+
+    // border-b p-3 flex justify-between items-center Header
+
+    <header className="bg-rgb(89, 121, 180)
+    text-3xl text-white text-center
+    border-t-2 border-white
+    inset-x-0
+
+    top-0
+    p-4 rgb(89, 121, 180)
+    border-b p-3 flex justify-between items-center Header">
 
     <div class="shrink-0 h-18 w-32 ...">
         <img src={imageSllacker} alt="" />
     </div>
-    <div class="absolute right-0 h-14 w-16 ... pr-4">
+    {/* <div class="absolute right-0 h-14 w-16 ... pr-4"> */}
     {/* <img src={userIcon} alt="" /> */}
-    </div>
+    {/* </div> */}
     <div class="md:container md:mx-auto">
     {/* <img src={searchIcon} alt="" class="shrink-0 h-6 w-6 ... "/> */}
-         <input placeholder="Search" class="w-25"/>
+         {/* <input placeholder="Search" class="w-25 text-black"/> */}
     </div>
     <Navigation />
     </header>
