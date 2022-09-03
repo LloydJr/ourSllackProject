@@ -1,3 +1,4 @@
+import react from 'react';
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import "./App.css"
@@ -10,22 +11,28 @@ import {container} from "./App.css"
 import Box from '@mui/material/Box';
 import Footer from "./components/Footer";
 import About from "./components/Pages/About";
+import UserComponent from './components/UserComponent';
+import App1 from './components/App1'
 
 
 function App() {
   return (
-    <div className="App">
-      
-      <Router>
+    <App1/>
+    
+    // <div className="App">
+      /* <Router>
         <Header />
         <Box sx={{width: '100%'}}>
         <grid className="container" columnSpacing = {{xs:1000}} >
           <div className="item">
-          {/* <Sidebar /> */}
-          </div>
-          <div className="item">
-          {/* <ChannelPage/> */}
-          </div>
+          {/* <Sidebar /> */
+          // <UserComponent />
+          // </div>
+          // <div className="item"> */}
+          /* <ChannelPage/> */
+         
+
+          /* </div>
         </grid>
         </Box>
         
@@ -33,13 +40,13 @@ function App() {
         <div></div>
         <br></br>
         <Routes>
-          <Route path="/about" element={<About />} >
-          </Route>
+          <Route path="/about" element={<About />} > */
+          /* </Route>
         </Routes> 
         
         <Footer />
       </Router>
-    </div>
+    </div> */
    
     
 
