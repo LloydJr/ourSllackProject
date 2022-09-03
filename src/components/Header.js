@@ -4,7 +4,6 @@ import userIcon from './images/149071.png'
 import searchIcon from './images/1024px-Search_Icon.svg.png'
 import App from '../App'
 import styled from 'styled-components'
-import ChannelPage from './ChannelPage'
 import Navigation from './Navigation'
 
 
@@ -18,7 +17,7 @@ function Header() {
     text-3xl text-white text-center
     border-t-2 border-white
     inset-x-0
-
+    
     top-0
     p-4 rgb(89, 121, 180)
     border-b p-3 flex justify-between items-center Header">

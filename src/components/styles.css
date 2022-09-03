@@ -7,7 +7,7 @@
     gap: 20px;
     height: 100vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #f8f9fd;
+    background-color: rgb(31, 41, 57), rgb(109, 146, 221);
   }
   
   input[type="text"],
