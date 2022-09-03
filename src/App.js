@@ -13,26 +13,24 @@ import Footer from "./components/Footer";
 import About from "./components/Pages/About";
 import UserComponent from './components/UserComponent';
 import App1 from './components/App1'
+import DirectMessage from "./components/Pages/DirectMessage"
+import Channles from "./components/Pages/Channles";
 
 
 function App() {
   return (
-    <App1/>
-    
-    // <div className="App">
-      /* <Router>
+    <div className="App">
+      
+      <Router>
         <Header />
         <Box sx={{width: '100%'}}>
         <grid className="container" columnSpacing = {{xs:1000}} >
           <div className="item">
-          {/* <Sidebar /> */
-          // <UserComponent />
-          // </div>
-          // <div className="item"> */}
-          /* <ChannelPage/> */
-         
-
-          /* </div>
+          {/* <Sidebar /> */}
+          </div>
+          <div className="item">
+          {/* <ChannelPage/> */}
+          </div>
         </grid>
         </Box>
         
@@ -40,13 +38,14 @@ function App() {
         <div></div>
         <br></br>
         <Routes>
-          <Route path="/about" element={<About />} > */
-          /* </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/direct_messages" element={<DirectMessage />} />
+          <Route path="channel_browser" element={<Channles />} />
         </Routes> 
         
-        <Footer />
+        {/* <Footer /> */}
       </Router>
-    </div> */
+    </div>
    
     
 

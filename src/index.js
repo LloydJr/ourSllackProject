@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './tailwind.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< HEAD
 // import * as serviceWorker from '.serviceWorker';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+=======
+>>>>>>> trunk/master
 
 // ReactDOM.render(
 //   <React.StrictMode>
