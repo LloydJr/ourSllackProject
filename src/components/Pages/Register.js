@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import { faCheck, faInfoCircle, faTimes, foInfoCirciel } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from './api/axios'
+import axios from 'axios'
+import "./Register.css";
+import { Link } from 'react-router-dom'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-const REGISTER_URL = '/user'
+const REGISTER_URL = 'http://localhost:8080/user'
 
 
 
@@ -87,14 +89,14 @@ const Register = () => {
     return (
         <>
         {success ? (
-            <section>
+            <section userName="text-white">
                 <h1>Success!</h1>
                 <p>
                     <a href="#">Sign In</a>
                 </p>
             </section>
         ) : (
-        <section> 
+        <section className='section text-white'> 
             <p ref={errRef} className={errMsg ? "errmsg" : 
             "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Register</h1>
@@ -116,6 +118,7 @@ const Register = () => {
                             aria-describedby="uidnote"
                             onFocus={() => setUserFocus(true)}
                             onBlur={() => setUserFocus(false)}
+                            className="text-black"
                         />
                 <p id="uidnote" className={userFocus && userName && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
@@ -141,6 +144,7 @@ const Register = () => {
                             aria-describedby = "pwdnote"
                             onFocus = {() => setPwdFocus(true)}
                             onBlur={() => setPwdFocus(false)}
+                            className="text-black"
                         />
                             <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon = {faInfoCircle} />
@@ -169,19 +173,20 @@ const Register = () => {
                             aria-describedby = "confirmnote"
                             onFocus={() => setMatchFocus(true)}
                             onBlur={() => setMatchFocus(false)}
+                            className="text-black"
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
                             Must match the first password input field.
                         </p>   
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}> Sign-Up </button> 
+                        <button disabled={!validName || !validPwd || !validMatch ? true : false} className="bg-blue-1998"> Sign-Up </button> 
             </form>
 
             <p>
-                Already Registerd?<br />
+                Already Registered?<br />
                 <span classname ="line">
-                    <a href="#">Sign In</a>
+                    <Link to="/sign_in">Sign In</Link>
                 </span>
             </p>
         </section>

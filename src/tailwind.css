@@ -10,6 +10,36 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.rightJawn {
+  float: right;
+}
+
+.centerThisJawn {
+vertical-align: center;
+}
+.jawn-full {
+  width: 100%;
+}
+
+.bg-transparent {
+  background: rgba(0,0,0,0.5);
+}
+
+.box1 {
+  background-color: #000;
+  color: #fff;
+  opacity: .5;
+}
+
+.box2 {
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+}
+.box3 {
+  background-color: rgba(1, 30, 76, 0.338);
+  color: #fff;
+}
+
 
 body {
     margin: 0;
@@ -1076,6 +1106,9 @@ body {
   
   .bg-blue-900 {
     background-color: #2a4365;
+  }
+  .bg-blue-1998 {
+    background-color: #5979b4;
   }
   
   .bg-indigo-100 {

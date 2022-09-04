@@ -1,10 +1,11 @@
 import React from 'react'
-import ChannelPage from '../ChannelPage'
-
+import ChannelListGet from '../ChannelComp/ChannelListGet'
+import ButtonSendMess from '../ButtonSendMess'
 function Channles() {
   return (
     <div>
-       <ChannelPage/> 
+       <ChannelListGet/> 
+       <ButtonSendMess />
     </div>
   )
 }

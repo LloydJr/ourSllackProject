@@ -28,9 +28,22 @@ public class UserController {
     }
 
     @GetMapping
-  public @ResponseBody ResponseEntity<List<User>> getUser(){
-      List<User> list = repository.findAll();
-     return new ResponseEntity<>(list, HttpStatus.OK ); //Optional caters for if you don't have a particular user. In that case it just returns null.
+    public @ResponseBody ResponseEntity<List<User>> findAllUsers(){
+      return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("find/{userName}")
+  public @ResponseBody ResponseEntity<User> getUser(@PathVariable String userName, User user){
+     for(int i = 0; i<repository.findAll().size(); i++){
+      if(userName.equalsIgnoreCase(repository.findAll().get(i).getUserName())){
+          user = repository.findByUsername(userName);
+          return new ResponseEntity<>(user, HttpStatus.OK );
+      } 
+     }
+
+     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      
+      //Optional caters for if you don't have a particular user. In that case it just returns null.
     }
 
 
