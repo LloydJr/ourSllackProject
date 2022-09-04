@@ -176,4 +176,20 @@ public class MessageController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+
+    @DeleteMapping("/{messageID}/{channelName}")
+    public @ResponseBody ResponseEntity<Message> deleteMessageByID (@PathVariable String messageID, Message message, User user) {
+
+        for (int i = 0; i < messageRepository.findAll().size(); i++) {
+            if (messageID.equals(messageRepository.findAll().get(i).getId())) {
+                message = messageRepository.findAll().get(i);
+                user = messageRepository.findAll().get(i).getUser();
+            }
+        }
+        user.getMessages().remove(message);
+        messageRepository.delete(message);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 }
