@@ -3,28 +3,6 @@ import { useEffect } from "react"
 import { useState } from "react"
 import axios from "axios"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import ListItem from '@mui/material/ListItem';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import Paper from '@mui/material/Paper';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import CssBaseline from '@mui/material/CssBaseline';
-import List from '@mui/material/List';
-import Box from '@mui/material/Box';
-import { Button } from "bootstrap";
-import ButtonSendMess from "../ButtonSendMess";
-
-
-
-
-
-
-
 
 
 
@@ -35,12 +13,13 @@ function ChannelPage() {
 
 
     useEffect(() => {
+        localStorage.getItem("channelName")
         axios.get(`http://localhost:8080/channel/messages/batman/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
         }).catch(err => console.log(err))
-    }, [])
+    }, [data])
 
     // http://localhost:8080/channel/messages/{channelName}/
 
