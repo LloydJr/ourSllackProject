@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
 
+
 export default class ButtonSendMess extends React.Component {
 
     refreshPage(e) {
@@ -29,7 +30,7 @@ export default class ButtonSendMess extends React.Component {
         }
 
     
-        axios.post(`http://localhost:8080/message/Billy/Pokemon`, message )
+        axios.post(`http://localhost:8080/message/frank/Batman`, message )
         .then(res => {
             console.log(res)
             console.log(res.data)
@@ -53,21 +54,27 @@ return (
         container
         direction="column"
         justifyContent="flex-start"
-        alignItems="stretch">
+        alignItems="stretch"
+        className="p-8 box2"
+        >
+    
        <TextField
-          id="outlined-multiline-static"
+          id="filled-multiline-static"
           label = "Send a message"
           multiline
           rows={4}
           onChange={this.handleChange}
+          className="bg-gray-200"
         />
         </Grid>
            </Box>
-           <button onClick={this.refreshPage}>Send</button>
+           <button onClick={this.handleSubmit}
+           className="box2">
+            Send
+            </button>
          
         </div>
 )
 }
-
 }
 

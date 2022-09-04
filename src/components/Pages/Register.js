@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from 'react'
 import { faCheck, faInfoCircle, faTimes, foInfoCirciel } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
+import "./Register.css";
+// import "./registerStyled.css"
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -94,7 +96,7 @@ const Register = () => {
                 </p>
             </section>
         ) : (
-        <section> 
+        <section className='section text-white'> 
             <p ref={errRef} className={errMsg ? "errmsg" : 
             "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1>Register</h1>
@@ -116,6 +118,7 @@ const Register = () => {
                             aria-describedby="uidnote"
                             onFocus={() => setUserFocus(true)}
                             onBlur={() => setUserFocus(false)}
+                            className="text-black"
                         />
                 <p id="uidnote" className={userFocus && userName && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
@@ -141,6 +144,7 @@ const Register = () => {
                             aria-describedby = "pwdnote"
                             onFocus = {() => setPwdFocus(true)}
                             onBlur={() => setPwdFocus(false)}
+                            className="text-black"
                         />
                             <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon = {faInfoCircle} />
@@ -169,6 +173,7 @@ const Register = () => {
                             aria-describedby = "confirmnote"
                             onFocus={() => setMatchFocus(true)}
                             onBlur={() => setMatchFocus(false)}
+                            className="text-black"
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
