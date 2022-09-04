@@ -13,16 +13,23 @@ export default class ChannelAdd extends React.Component {
 handleSubmit = event => {
     // event.preventDefault()
 
+
     const channel = {
         channelName: this.state.channelName
     }
-
+    
+    const loggedInUser = localStorage.getItem("user");
         axios
-             .post('http://localhost:8080/channel/new/jim', channel )
+             .post(`http://localhost:8080/channel/new/${loggedInUser}`, channel )
             .then(res => {
                 console.log(res);
                 console.log(res.data);
             })
+
+            // test later today
+            // localStorage.setItem('channel', channel)
+            // const channelNameGlobal = localStorage.getItem("channel");
+            // console.log(channelNameGlobal)
     };
 
     render() {

@@ -11,10 +11,12 @@ import InfoIcon from '@mui/icons-material/Info';
 
 
 function NavigationMenu(props) {
+  const loggedInUser = localStorage.getItem("user");
   return (
+    
     <div>
     <span className="text-black font-bold py-3">
-                User Name
+               {loggedInUser}
             </span>
             <ul>
         <li>

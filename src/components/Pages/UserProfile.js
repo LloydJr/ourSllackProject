@@ -1,8 +1,10 @@
 import React from 'react'
 
 function UserProfile() {
+
+  const loggedInUser = localStorage.getItem("user");
   return (
-    <div>Poop</div>
+    <div>{loggedInUser}</div>
   )
 }
 

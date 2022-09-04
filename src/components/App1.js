@@ -1,43 +1,78 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 import "./styles.css";
+
+const LOGIN_URL = 'http://localhost:8080/user'
+
 
 function App1() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [data, setData] = useState('');
+
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/user`)
+    .then(res => {
+        console.log("Getting from :::::", res.data)
+        setData(res.data)
+    }).catch(err => console.log(err))
+  }, [])
+  
+  
 
   // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
+  // const database = axios.get(`http://localhost:8080/user/`);
+  // console.log(database);
+
+
+    // {
+    //   username: "user1",
+    //   password: "pass1"
+    // },
+    // {
+    //   username: "user2",
+    //   password: "pass2"
+    // }
+  ;
 
   const errors = {
     uname: "invalid username",
     pass: "invalid password"
   };
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     //Prevent page reload
-    event.preventDefault();
+    event.preventDefault();  
+    const response = await axios.get(`http://localhost:8080/user/find/${userName}`);
+    
+    console.log(response?.data);
+    console.log(response);
+
+    localStorage.setItem('user', userName)
+    const loggedInUser = localStorage.getItem("user");
+    console.log(loggedInUser);
+
 
     var { uname, pass } = document.forms[0];
 
     // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+    // New code
+    const findData = data.find((user) => user.userName === uname.value);
+    const findDataP = data.find((passw) => passw.password === pass.value)
+    console.log(findData)
+    console.log(findDataP)
 
     // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
+    // New code
+    if (findDataP) {
+      if (findDataP.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
@@ -49,6 +84,7 @@ function App1() {
     }
   };
 
+  
   // Generate JSX code for error message
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
@@ -61,7 +97,7 @@ function App1() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input type="text"  onChange={(e) => setUserName(e.target.value)} name="uname" required />
           {renderErrorMessage("uname")}
         </div>
         <div className="input-container">
