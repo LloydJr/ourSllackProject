@@ -13,8 +13,8 @@ function ChannelPage() {
 
 
     useEffect(() => {
-        localStorage.getItem("channelName")
-        axios.get(`http://localhost:8080/channel/messages/batman/`)
+        const channelNameG = localStorage.getItem("channelName")
+        axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
@@ -24,7 +24,8 @@ function ChannelPage() {
     // http://localhost:8080/channel/messages/{channelName}/
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/batman/`)
+        const channelNameG = localStorage.getItem("channelName")
+        axios.get(`http://localhost:8080/channel/${channelNameG}/`)
         .then(res => 
             {
             console.log("Getting from :::::", res.data)
