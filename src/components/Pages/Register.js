@@ -3,11 +3,11 @@ import { faCheck, faInfoCircle, faTimes, foInfoCirciel } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import "./Register.css";
-// import "./registerStyled.css"
+import { Link } from 'react-router-dom'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-const REGISTER_URL = '/user'
+const REGISTER_URL = 'http://localhost:8080/user'
 
 
 
@@ -89,7 +89,7 @@ const Register = () => {
     return (
         <>
         {success ? (
-            <section>
+            <section userName="text-white">
                 <h1>Success!</h1>
                 <p>
                     <a href="#">Sign In</a>
@@ -180,13 +180,13 @@ const Register = () => {
                             Must match the first password input field.
                         </p>   
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}> Sign-Up </button> 
+                        <button disabled={!validName || !validPwd || !validMatch ? true : false} className="bg-blue-1998"> Sign-Up </button> 
             </form>
 
             <p>
-                Already Registerd?<br />
+                Already Registered?<br />
                 <span classname ="line">
-                    <a href="#">Sign In</a>
+                    <Link to="/sign_in">Sign In</Link>
                 </span>
             </p>
         </section>
