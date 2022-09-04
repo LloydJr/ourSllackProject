@@ -30,8 +30,9 @@ export default class ButtonSendMess extends React.Component {
             message: this.state.message
         }
 
+        const loggedInUser = localStorage.getItem("user")
     
-        axios.post(`http://localhost:8080/message/frank/Batman`, message )
+        axios.post(`http://localhost:8080/message/${loggedInUser}/Batman`, message )
         .then(res => {
             console.log(res)
             console.log(res.data)
