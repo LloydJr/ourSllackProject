@@ -10,6 +10,20 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.border-solid {
+border-style: solid;
+}
+
+.text-7xl	{
+font-size: 4.5rem; /* 72px */
+line-height: 1;
+}
+
+.text-9xl {
+font-size: 8rem; /* 128px */
+line-height: 1;
+}
+
 .rightJawn {
   float: right;
 }
@@ -38,6 +52,14 @@ vertical-align: center;
 .box3 {
   background-color: rgba(1, 30, 76, 0.338);
   color: #fff;
+}
+.box4 {
+  background-color: rgba(1, 30, 76, 0.338);
+  color: #fff;
+  border:#fff;
+  border-style:ridge;
+  margin-left: 700px;
+  margin-right: 700px;
 }
 
 

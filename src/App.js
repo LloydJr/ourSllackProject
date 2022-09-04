@@ -17,6 +17,7 @@ import DirectMessage from "./components/Pages/DirectMessage"
 import Channles from "./components/Pages/Channles";
 import UserProfile from './components/Pages/UserProfile';
 import Register from './components/Pages/Register'
+import SuccessfulSignIn from './components/Pages/SuccessfulSignIn';
 
 
 function App() {
@@ -28,13 +29,13 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<Register />} /> {/*This is also the path to logout.*/}
           <Route path="/sign_in" element={<App1 />}/>
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
           <Route path="/channel_browser" element={<Channles />} />
-          <Route path="/sign_in" element={<App1 />} />
+          <Route path="/sign_in_successful" element={<SuccessfulSignIn />} />
         </Routes> 
         
         {/* <Footer /> */}

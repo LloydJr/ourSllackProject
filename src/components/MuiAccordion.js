@@ -6,7 +6,7 @@ function MuiAccordion() {
     <div>
       
       <Accordion>
-        <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary id="panel1-header" aria-controls="panel1-content" expandIcon={<ExpandMoreIcon />} >
           <Typography>Fitru</Typography>
           </AccordionSummary> 
         <AccordionDetails>
