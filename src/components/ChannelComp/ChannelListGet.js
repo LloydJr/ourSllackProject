@@ -1,10 +1,16 @@
+import React from "react"
+import { useEffect } from "react"
+import { useState } from "react"
+import axios from "axios"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 function ChannelPage() {
 
     const [data, setData] = useState([])
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/messages/RandomConv/`)
+        axios.get(`http://localhost:8080/channel/messages/batman/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
@@ -14,7 +20,7 @@ function ChannelPage() {
     // http://localhost:8080/channel/messages/{channelName}/
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/RandomConv/`)
+        axios.get(`http://localhost:8080/channel/batman/`)
         .then(res => 
             {
             console.log("Getting from :::::", res.data)
@@ -25,7 +31,7 @@ function ChannelPage() {
 
     const headName = data.map((data) => {
         return (
-            <h1>{data.channel.channelName}</h1>
+            <h1 className="box3 text-3xl text-white text-center">{data.channel.channelName}</h1>
         )
 
         
@@ -39,14 +45,16 @@ function ChannelPage() {
 
     const arr = data.map((data, index) => {
         return (
+            //py-8 px-8 max-w-sm mx-auto rounded-xl shadow-lg space-y-2 sm:py-4   sm:flex sm:items-center sm:space-y-0 sm:space-x-6 bg-white
            
-            <div class="py-8 px-8 max-w-sm mx-auto rounded-xl shadow-lg space-y-2 sm:py-4   sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            <div className="box2 text-center py-8 px-8 mx-auto rounded-xl sm:py-4">
             <div class="text-center space-y-2 sm:text-left">
               <div class="space-y-0.5">
-                <p class="text-lg text-black font-semibold">
+                <p class="text-lg text-white font-semibold">
+                    < AccountCircleIcon/>
                 {data.userName}
                 </p>
-                <p class="text-slate-500 font-medium">
+                <p class="text-slate-500 font-medium ">
                 {data.message}      </p>
               </div>
             </div>
@@ -71,7 +79,7 @@ function ChannelPage() {
       }>
         </h1>
       {headName}
-       <table style={{
+       <div style={{
            textAlign: 'center',
            justifyConent: 'center',
        }}>
@@ -79,8 +87,8 @@ function ChannelPage() {
         </tr>
        {arr}
 
-       </table >
-       <div className='w-96'>
+       </div >
+       <div className='min-w-full'>
         
        </div>
        </div>

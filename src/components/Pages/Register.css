@@ -4,24 +4,24 @@
     box-sizing: border-box;
   }
   
-  html {
+  /* html {
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     color: #fff;
-  }
+  } */
   
   body {
     min-height: 100vh;
-    background-color: dodgerblue;
+    background-image: linear-gradient(90deg, rgb(31, 41, 57), rgb(109, 146, 221));
   }
   
   .App {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh; 
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.5rem; */
   }
   
   section {
@@ -33,6 +33,7 @@
     justify-content: flex-start;
     padding: 1rem;
     background-color: rgba(0,0,0,0.4);
+    
   }
   
   form {
@@ -43,9 +44,9 @@
     padding-bottom: 1rem;
   }
   
-  a, a:visited {
+  /* a, a:visited {
     color: #fff;
-  }
+  } */
   
   input[type="text"],
   input[type="password"],

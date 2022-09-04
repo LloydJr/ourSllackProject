@@ -24,21 +24,9 @@ function App() {
     <div className="App">
       
       <Router>
+
         <Header />
-        <Box sx={{width: '100%'}}>
-        <grid className="container" columnSpacing = {{xs:1000}} >
-          <div className="item">
-          {/* <Sidebar /> */}
-          </div>
-          <div className="item">
-          {/* <ChannelPage/> */}
-          </div>
-        </grid>
-        </Box>
-        
-      
-        <div></div>
-        <br></br>
+
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/sign_in" element={<App1 />}/>
@@ -48,7 +36,7 @@ function App() {
           <Route path="channel_browser" element={<Channles />} />
         </Routes> 
         
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
    
