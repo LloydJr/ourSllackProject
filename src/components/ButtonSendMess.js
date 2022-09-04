@@ -8,31 +8,15 @@ import Grid from '@mui/material/Grid'
 import { height } from '@mui/system';
 import Stack from '@mui/material/TextField'
 
+ function ButtonSendMess(){
 
-export default class ButtonSendMess extends React.Component {
+    const [data1, setData] = useState('')
 
-    refreshPage(e) {
-        e.preventDefault();
-    }
-    
-    state = {
-        message: '',
-    }
-
-    handleChange = event => {
-        this.setState({message: event.target.value})
-    }
-
-
-    handleSubmit = event => {
-
-        const message = {
-            message: this.state.message
-        }
+    const handleSubmit = async () => {
 
         const loggedInUser = localStorage.getItem("user")
     
-        axios.post(`http://localhost:8080/message/${loggedInUser}/Batman`, message )
+         axios.post(`http://localhost:8080/message/${loggedInUser}/Batman`, {message: data1} )
         .then(res => {
             console.log(res)
             console.log(res.data)
@@ -40,12 +24,7 @@ export default class ButtonSendMess extends React.Component {
 
     }
 
-
-
-render (){
-return (
-
-   
+    return (
         
         <Box
         sx={{
@@ -66,40 +45,28 @@ return (
           label = "Send a message"
           multiline
           rows={4}
-          onChange={this.handleChange}
+          onChange={(e) => setData(e.target.value)}
           className="bg-gray-200"
         />
-        <button onClick={this.handleSubmit}
+        <button onClick={handleSubmit}
            className="box2 rightJawn">
             Send
             </button>
         </Grid>
            </Box>
 
-        //    <Stack
-        //    component="form"
-        //    sx={{width:'55ch'}}
-        //    spacing={5}
-        //    noValidate
-        //    autoComplete="off"
-        //    >
-
-        //     <TextField
-        //     hiddenLabel
-        //     id="filled-hidden-label-small"
-        //     defaultValue="Small"
-        //     variant="filled"
-        //     size="small"/>
-
-        //     <TextField
-        //     hiddenLabel
-        //     id="filled-hidden-label-normal"
-        //     defaultValue="Normal"
-        //     variant="filled"></TextField>
-        //    </Stack>
+       
 
          
 )
+
+
+
 }
-}
+
+export default ButtonSendMess
+
+
+
+
 

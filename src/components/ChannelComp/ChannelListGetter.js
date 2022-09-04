@@ -10,9 +10,10 @@ export default function ChannelListGetter() {
 
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
+    const[message, setMessage] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/all`)
+        axios.get(`http://localhost:8080/channel/all/list`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
@@ -23,7 +24,7 @@ export default function ChannelListGetter() {
 
     
     
-        const handleChangeMultiple = (event) => {
+        const handleChangeMultiple = async (event) => {
           const { options } = event.target;
           const value = []; 
           for (let i = 0, l = options.length; i < l; i += 1) {
@@ -43,23 +44,21 @@ export default function ChannelListGetter() {
             axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
             .then(res => {
                 console.log("Getting from :::::", res.data)
-                setData(res.data)
+                setMessage(res.data)
             }).catch(err => console.log(err))
         }
 
         
 
 
-       
-
-
         return (
             <div>
-              <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 300 }}>
-                <InputLabel shrink htmlFor="select-multiple-native">
+              <FormControl sx={{ m: 1, minWidth: 200, maxWidth: 200}}>
+                <InputLabel shrink htmlFor="select-multiple-native" sx={{paddingBottom: 50}}>
                   Native
                 </InputLabel>
-                <Select
+                <Select 
+               
                   multiple
                   native
                 //   value={personName}
@@ -70,15 +69,23 @@ export default function ChannelListGetter() {
                   inputProps={{
                     id: 'select-multiple-native',
                   }}
+                  
                 >
                   {data.map(name => 
-                    <option  value={name.channelName}>
-                      {name.channelName}
+                    <option  value={name}>
+                      {name}
                     </option>
                   )}
                 </Select>
               </FormControl>
               {localStorage.getItem('channelName')}
+
+              <ul>{message.map(mes => 
+                    <li>
+                        {mes.userName}
+                      {mes.message}
+                    </li>
+                  )}</ul>
             </div>
           );
 
