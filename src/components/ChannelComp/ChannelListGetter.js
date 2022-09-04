@@ -32,21 +32,21 @@ export default function ChannelListGetter() {
               value.push(options[i].value);
               localStorage.setItem('channelName', value[0])
               setChannel(value)
-              handleChannelChange()
+            //   handleChannelChange()
 
             }
           }
          
         };
 
-       const handleChannelChange = async () => {
-            const channelNameG = localStorage.getItem('channelName')
-            axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
-            .then(res => {
-                console.log("Getting from :::::", res.data)
-                setMessage(res.data)
-            }).catch(err => console.log(err))
-        }
+    //    const handleChannelChange = async () => {
+    //         const channelNameG = localStorage.getItem('channelName')
+    //         axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
+    //         .then(res => {
+    //             console.log("Getting from :::::", res.data)
+    //             setMessage(res.data)
+    //         }).catch(err => console.log(err))
+    //     }
 
         
 
@@ -78,14 +78,14 @@ export default function ChannelListGetter() {
                   )}
                 </Select>
               </FormControl>
-              {localStorage.getItem('channelName')}
+              {/* {localStorage.getItem('channelName')}
 
               <ul>{message.map(mes => 
                     <li>
                         {mes.userName}
                       {mes.message}
                     </li>
-                  )}</ul>
+                  )}</ul> */}
             </div>
           );
 
