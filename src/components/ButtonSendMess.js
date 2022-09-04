@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
+import { height } from '@mui/system';
+import Stack from '@mui/material/TextField'
 
 
 export default class ButtonSendMess extends React.Component {
@@ -23,7 +25,6 @@ export default class ButtonSendMess extends React.Component {
 
 
     handleSubmit = event => {
-        event.preventDefault();
 
         const message = {
             message: this.state.message
@@ -43,19 +44,20 @@ export default class ButtonSendMess extends React.Component {
 render (){
 return (
 
-    <div>
+   
         
         <Box
         sx={{
-            width: 500,
-            maxWidth: '100%'
+            // width: 500,
+            maxWidth: '100%',
+            
         }}>
             <Grid 
         container
         direction="column"
         justifyContent="flex-start"
         alignItems="stretch"
-        className="p-8 box2"
+        className="box2"
         >
     
        <TextField
@@ -66,14 +68,36 @@ return (
           onChange={this.handleChange}
           className="bg-gray-200"
         />
-        </Grid>
-           </Box>
-           <button onClick={this.handleSubmit}
-           className="box2">
+        <button onClick={this.handleSubmit}
+           className="box2 rightJawn">
             Send
             </button>
+        </Grid>
+           </Box>
+
+        //    <Stack
+        //    component="form"
+        //    sx={{width:'55ch'}}
+        //    spacing={5}
+        //    noValidate
+        //    autoComplete="off"
+        //    >
+
+        //     <TextField
+        //     hiddenLabel
+        //     id="filled-hidden-label-small"
+        //     defaultValue="Small"
+        //     variant="filled"
+        //     size="small"/>
+
+        //     <TextField
+        //     hiddenLabel
+        //     id="filled-hidden-label-normal"
+        //     defaultValue="Normal"
+        //     variant="filled"></TextField>
+        //    </Stack>
+
          
-        </div>
 )
 }
 }

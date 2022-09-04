@@ -3,11 +3,36 @@ import { useEffect } from "react"
 import { useState } from "react"
 import axios from "axios"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ListItem from '@mui/material/ListItem';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import Paper from '@mui/material/Paper';
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import CssBaseline from '@mui/material/CssBaseline';
+import List from '@mui/material/List';
+import Box from '@mui/material/Box';
+import { Button } from "bootstrap";
+import ButtonSendMess from "../ButtonSendMess";
+
+
+
+
+
+
+
+
+
 
 function ChannelPage() {
 
     const [data, setData] = useState([])
     const [user, setUser] = useState([])
+
 
     useEffect(() => {
         axios.get(`http://localhost:8080/channel/messages/batman/`)
@@ -59,6 +84,23 @@ function ChannelPage() {
               </div>
             </div>
           </div>
+
+    //     <Box sx={{ pb: 0 }} >
+    //     <CssBaseline />
+    //     <List>
+          
+    //         <ListItem className="box2 text-white">
+    //           <ListItemAvatar>
+    //             <Avatar alt="Profile Picture"  />
+    //           </ListItemAvatar>
+    //           <ListItemText primary={data.userName} secondary={data.message} className="text-white"/>
+    //         </ListItem>
+          
+    //     </List>
+    //     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+    //         <ButtonSendMess/>
+    //     </Paper>
+    //   </Box>
           
             
         )

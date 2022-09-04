@@ -33,7 +33,8 @@ function App() {
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
-          <Route path="channel_browser" element={<Channles />} />
+          <Route path="/channel_browser" element={<Channles />} />
+          <Route path="/sign_in" element={<App1 />} />
         </Routes> 
         
         {/* <Footer /> */}

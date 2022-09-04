@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { Link } from 'react-router-dom'
 
 import "./styles.css";
 
@@ -79,10 +80,27 @@ function App1() {
     <div className="app">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-      </div>
+        {isSubmitted ? <div>User is successfully logged in
+          <div >
+          <Link to="/channel_browser" className="title">Click Here</Link>
+          </div>
+        </div> : renderForm}
+
+
+      </div >
     </div>
   );
 }
 
 export default App1;
+
+function toggleDiv(){
+  var displayStatus = document.getElementById("div1");
+  if ( displayStatus.style.display == 'none' ){
+    //If the div is hidden, show it
+    displayStatus.style.display = 'block';
+  } else {
+    //If the div is shown, hide it
+    displayStatus.style.display = 'none';
+  }
+};
