@@ -50,18 +50,14 @@ public class ChannelController {
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
             channelNames.add(channelRepository.findAll().get(i).getChannelName());
         }
-//        channelNames.add(channelRepository.findAll());
+//        channelNames.add(channelRepository.findAll().);
         return new ResponseEntity<>(channelNames, HttpStatus.OK);
     }
 
     @GetMapping("/all/list/{userName}")
     public ResponseEntity<List<String>> viewUserChannelNames(@PathVariable String userName, User user, Channel channel) {
         List<String> channelNames = new ArrayList<>();
-//        for (int i = 0; i < userRepository.findAll().size(); i++) {
-//            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
-//                user = userRepository.findAll().get(i);
-//            }
-//        }
+
 
         user = userRepository.findByUsername(userName);
         List<Channel> userChannels = user.getChannels();
@@ -69,6 +65,17 @@ public class ChannelController {
             channelNames.add(userChannels.get(j).getChannelName());
         }
         return new ResponseEntity<>(channelNames, HttpStatus.OK);
+    }
+
+    @GetMapping("/all/users/{channelName}")
+    public ResponseEntity<List<String>> viewChannelUserNames(@PathVariable String channelName, User user, Channel channel) {
+        List<String> userNames = new ArrayList<>();
+        channel = channelRepository.findByChannelName(channelName);
+        List<User> userChannels = channel.getChannel_users();
+        for (int j = 0; j < userChannels.size(); j++) {
+            userNames.add(userChannels.get(j).getUserName());
+        }
+        return new ResponseEntity<>(userNames, HttpStatus.OK);
     }
 
 
