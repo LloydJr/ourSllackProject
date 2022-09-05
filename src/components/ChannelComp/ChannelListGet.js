@@ -15,7 +15,6 @@ function ChannelPage() {
         const logChannel = localStorage.getItem("channelName")
         axios.get(`http://localhost:8080/channel/messages/${logChannel}/`)
        .then(res => {
-           console.log("Getting from :::::", res.data)
            setData(res.data)
            setUser(res.data)
            window.scrollTo(0, document.body.scrollHeight)
