@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import "./Register.css";
 import { Link } from 'react-router-dom'
+import SuccessfulSignUp from './SuccessfulSignUp';
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -89,12 +90,7 @@ const Register = () => {
     return (
         <>
         {success ? (
-            <section userName="text-white">
-                <h1>Success!</h1>
-                <p>
-                    <a href="#">Sign In</a>
-                </p>
-            </section>
+            <SuccessfulSignUp/>
         ) : (
         <section className='section text-white'> 
             <p ref={errRef} className={errMsg ? "errmsg" : 
