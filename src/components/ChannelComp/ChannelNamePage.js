@@ -20,10 +20,7 @@ handleSubmit = event => {
     }
 
     axios.post(`http://localhost:8080/channel/new/frank`, channel )
-    .then(res => {
-        console.log(res)
-        console.log(res.data)
-    })
+    .then()
     
 }
 

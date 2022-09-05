@@ -25,7 +25,6 @@ export default function ChannelListGetter() {
     useEffect(() => {
         axios.get(`http://localhost:8080/channel/all/list`)
         .then(res => {
-            console.log("Getting from :::::", res.data)
             setData(res.data)
         }).catch(err => console.log(err))
     }, [])
