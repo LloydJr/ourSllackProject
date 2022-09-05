@@ -58,17 +58,9 @@ public class MessageController {
     public @ResponseBody ResponseEntity<Message> createMessageAndPost(@PathVariable String userName, @PathVariable String channelName,
                                                                       @RequestBody Message message,
                                                                       User user, Channel channel) {
-        for (int i = 0; i < userRepository.findAll().size(); i++) {
-            if (userName.equalsIgnoreCase(userRepository.findAll().get(i).getUserName())) {
-                user = userRepository.findAll().get(i);
-            }
-        }
+        user = userRepository.findByUsername(userName);
 
-        for (int i = 0; i < channelRepository.findAll().size(); i++) {
-            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
-                channel = channelRepository.findAll().get(i);
-            }
-        }
+        channel = channelRepository.findByChannelName(channelName);
 
         message.setUser(user);
         message.setChannel(channel);
