@@ -14,21 +14,17 @@ import { WindowSharp } from '@mui/icons-material';
 
     const [data1, setData] = useState('')
 
-    const handleSubmit = async () => {
+    const handleSubmit = () => {
 
 
         const loggedInUser = localStorage.getItem("user")
         const loggedChannel = localStorage.getItem("channelName")
     
-         axios.post(`http://localhost:8080/message/${loggedInUser}/${loggedChannel}`, {message: data1} )
-        .then(res => {
-            console.log(res)
-            console.log(res.data)
-        
-            
-        })
-        // window.location.reload(false)
-
+        axios.post(`http://localhost:8080/message/${loggedInUser}/${loggedChannel}`, {message: data1} )
+        .then(() => {
+            setData('')
+            window.location.reload(true)
+        })  
     }
 
     return (
