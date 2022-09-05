@@ -50,7 +50,6 @@ public class ChannelController {
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
             channelNames.add(channelRepository.findAll().get(i).getChannelName());
         }
-
 //        channelNames.add(channelRepository.findAll());
         return new ResponseEntity<>(channelNames, HttpStatus.OK);
     }
@@ -65,14 +64,10 @@ public class ChannelController {
 //        }
 
         user = userRepository.findByUsername(userName);
-
-
         List<Channel> userChannels = user.getChannels();
-
         for (int j = 0; j < userChannels.size(); j++) {
             channelNames.add(userChannels.get(j).getChannelName());
         }
-
         return new ResponseEntity<>(channelNames, HttpStatus.OK);
     }
 
@@ -85,7 +80,6 @@ public class ChannelController {
 //                }
 //            }
         user = userRepository.findByUsername(userName);
-
         List<Channel> userChannels = user.getChannels();
         return new ResponseEntity<>(userChannels, HttpStatus.OK);
     }
@@ -155,9 +149,7 @@ public class ChannelController {
     }
 
     @PutMapping("/remove/{userName}/{channelName}")
-    public ResponseEntity<List<Channel>> removeUserFromChannel(@PathVariable String
-                                                                       channelName, @PathVariable String userName, Channel
-                                                                       channel, User user) {
+    public ResponseEntity<List<Channel>> removeUserFromChannel(@PathVariable String channelName, @PathVariable String userName, Channel channel, User user) {
 //            for (int i = 0; i < channelRepository.findAll().size(); i++) {
 //                if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
 //                    channel = channelRepository.findAll().get(i);
