@@ -10,6 +10,10 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.selectJawn {
+  max-width: 600px;
+}
+
 .border-solid {
 border-style: solid;
 }

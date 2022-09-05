@@ -14,11 +14,11 @@ import About from "./components/Pages/About";
 import UserComponent from './components/UserComponent';
 import App1 from './components/App1'
 import DirectMessage from "./components/Pages/DirectMessage"
-import Channles from "./components/Pages/Channles";
+import ChannelBrowser from "./components/Pages/ChannelBrowser";
 import UserProfile from './components/Pages/UserProfile';
 import Register from './components/Pages/Register'
-import SuccessfulSignIn from './components/Pages/SuccessfulSignIn';
-
+import SuccessfulSignUp from './components/Pages/SuccessfulSignUp';
+import ChannelListGetter from "./components/ChannelComp/ChannelListGetter";
 
 function App() {
   return (
@@ -34,8 +34,9 @@ function App() {
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
-          <Route path="/channel_browser" element={<Channles />} />
-          <Route path="/sign_in_successful" element={<SuccessfulSignIn />} />
+          <Route path="/channel_browser" element={<ChannelBrowser />} />
+          <Route path="/sign_up_successful" element={<SuccessfulSignUp />} />
+          <Route path="/channels" element={< ChannelListGetter/>} />
         </Routes> 
         
         {/* <Footer /> */}

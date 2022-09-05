@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SuccessfulSignIn() {
+function SuccessfulSignUp() {
   return (
     <div userName="text-white">
             <h1 className='text-white text-center text-9xl'>
@@ -13,4 +13,4 @@ function SuccessfulSignIn() {
   )
 };
 
-export default SuccessfulSignIn
+export default SuccessfulSignUp

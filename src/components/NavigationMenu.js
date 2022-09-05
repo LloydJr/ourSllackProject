@@ -57,7 +57,7 @@ function NavigationMenu(props) {
           onClick={props.closeMenu}>File Browser</Link>
         </li> */}
         <li>
-          <Link to="/about" className="text-blue-500 py-3 border-b block" 
+          <Link to="/channels" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><ExpandMoreIcon/>Channels</Link>
         </li>
         <li>

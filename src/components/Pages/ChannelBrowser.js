@@ -1,7 +1,9 @@
 import React from 'react'
 import ChannelListGet from '../ChannelComp/ChannelListGet'
 import ButtonSendMess from '../ButtonSendMess'
-function Channles() {
+
+
+function ChannelBrowser() {
   return (
     <div>
        <ChannelListGet/> 
@@ -10,4 +12,4 @@ function Channles() {
   )
 }
 
-export default Channles
+export default ChannelBrowser
