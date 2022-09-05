@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import './ChannelAdd.css'
+import Button from '@mui/material/Button'
+
 
 export default class ChannelAdd extends React.Component {
     state = {
@@ -34,13 +37,16 @@ handleSubmit = event => {
 
     render() {
         return (
+            <div className = 'form-box'>
+                <h5 className = "form-step">    New Channel</h5>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Channel:
                     <input type='text' name="channelName" onChange={this.handleChange}/>
                 </label>
-                <button type="submit">Add Channel</button>
+                <Button variant="contained" type="submit">Add Channel</Button>
             </form>
+            </div>
         );
     }
 }

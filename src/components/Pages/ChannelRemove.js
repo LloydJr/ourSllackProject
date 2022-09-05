@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import './ChannelRemove.css'
+import Button from '@mui/material/Button'
+
 
 export default class ChannelRemove extends React.Component {
     state = {
@@ -27,13 +30,16 @@ handleSubmit = event => {
 
     render() {
         return (
+            <div className='form-box'>
+                <h5 classname = "form-step">Delete a Channel</h5>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Channel:
                     <input type='text' name="channelName" value = {this.state.channelName} onChange={this.handleChange}/>
                 </label>
-                <button type="submit">Remove Channel</button>
+                <Button variant="contained" type="submit">Remove Channel</Button>
             </form>
+            </div>
         );
     }
 }
