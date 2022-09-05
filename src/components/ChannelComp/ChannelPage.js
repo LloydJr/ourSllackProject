@@ -11,7 +11,8 @@ function ChannelPage() {
     const [user, setUser] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/messages/RandomConv/`)
+        const channelLog = localStorage.getItem("channelName")
+        axios.get(`http://localhost:8080/channel/messages/${channelLog}/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
@@ -21,7 +22,8 @@ function ChannelPage() {
     // http://localhost:8080/channel/messages/{channelName}/
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/RandomConv/`)
+        const channelLog = localStorage.getItem("channelName")
+        axios.get(`http://localhost:8080/channel/${channelLog}/`)
         .then(res => 
             {
             console.log("Getting from :::::", res.data)

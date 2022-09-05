@@ -7,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
 import { height } from '@mui/system';
 import Stack from '@mui/material/TextField'
+import ChannelListGetter from './ChannelComp/ChannelListGetter';
 
  function ButtonSendMess(){
 
@@ -14,9 +15,11 @@ import Stack from '@mui/material/TextField'
 
     const handleSubmit = async () => {
 
+
         const loggedInUser = localStorage.getItem("user")
+        const loggedChannel = localStorage.getItem("channelName")
     
-         axios.post(`http://localhost:8080/message/${loggedInUser}/Batman`, {message: data1} )
+         axios.post(`http://localhost:8080/message/${loggedInUser}/${loggedChannel}`, {message: data1} )
         .then(res => {
             console.log(res)
             console.log(res.data)
@@ -25,6 +28,7 @@ import Stack from '@mui/material/TextField'
     }
 
     return (
+
         
         <Box
         sx={{

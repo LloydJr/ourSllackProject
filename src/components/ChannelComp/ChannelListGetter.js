@@ -4,6 +4,14 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {useEffect, useState} from 'react'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ButtonSendMess from '../ButtonSendMess';
+import TagIcon from '@mui/icons-material/Tag';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 
 export default function ChannelListGetter() {
@@ -11,6 +19,7 @@ export default function ChannelListGetter() {
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
     const[message, setMessage] = useState([])
+    let navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:8080/channel/all/list`)
@@ -32,60 +41,67 @@ export default function ChannelListGetter() {
               value.push(options[i].value);
               localStorage.setItem('channelName', value[0])
               setChannel(value)
-            //   handleChannelChange()
+              navigate("/channel_browser")
 
             }
           }
+
+          const channelNameG = localStorage.getItem('channelName')
+            axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
+            .then(res => {
+                setMessage(res.data)
+            }).catch(err => console.log(err))
          
         };
 
-    //    const handleChannelChange = async () => {
-    //         const channelNameG = localStorage.getItem('channelName')
-    //         axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
-    //         .then(res => {
-    //             console.log("Getting from :::::", res.data)
-    //             setMessage(res.data)
-    //         }).catch(err => console.log(err))
-    //     }
+      //  const handleChannelChange = async () => {
+      //       const channelNameG = localStorage.getItem('channelName')
+      //       axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
+      //       .then(res => {
+      //           console.log("Getting from :::::", res.data)
+      //           setMessage(res.data)
+      //       }).catch(err => console.log(err))
+      //   }
 
         
 
 
         return (
-            <div>
-              <FormControl sx={{ m: 1, minWidth: 200, maxWidth: 200}}>
-                <InputLabel shrink htmlFor="select-multiple-native" sx={{paddingBottom: 50}}>
-                  Native
-                </InputLabel>
-                <Select 
-               
+            <div className='text-white'
+>
+                <Select
                   multiple
                   native
-                //   value={personName}
-                  // @ts-ignore Typings are not considering `native`
                   onChange={handleChangeMultiple}
                   value={channel}
                   label="Native"
                   inputProps={{
                     id: 'select-multiple-native',
                   }}
-                  
-                >
+                  >
                   {data.map(name => 
-                    <option  value={name}>
-                      {name}
-                    </option>
+                    <option value={name} className='text-white'> 
+                    {name} </option>
                   )}
                 </Select>
-              </FormControl>
-              {/* {localStorage.getItem('channelName')}
 
-              <ul>{message.map(mes => 
-                    <li>
-                        {mes.userName}
+
+              {/* <ul>
+                <h1 className="box3 text-3xl text-white text-center">
+              {localStorage.getItem('channelName')}
+              </h1>
+
+                {message.map(mes => 
+                    <li className='box2'>
+                        <AccountCircleIcon/>{mes.userName}
+                        <div>
                       {mes.message}
+                      </div>
                     </li>
-                  )}</ul> */}
+                    
+                  )}</ul>
+                  <ButtonSendMess /> */}
+                  <div href="/channel_browser" variant="contained" />
             </div>
           );
 
