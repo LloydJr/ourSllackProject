@@ -7,7 +7,8 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
 import { height } from '@mui/system';
 import Stack from '@mui/material/TextField'
-import ChannelListGetter from './ChannelComp/ChannelListGetter';
+import { WindowSharp } from '@mui/icons-material';
+
 
  function ButtonSendMess(){
 
@@ -23,7 +24,10 @@ import ChannelListGetter from './ChannelComp/ChannelListGetter';
         .then(res => {
             console.log(res)
             console.log(res.data)
+        
+            
         })
+        // window.location.reload(false)
 
     }
 

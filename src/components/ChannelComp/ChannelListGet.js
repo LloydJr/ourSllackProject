@@ -12,14 +12,29 @@ function ChannelPage() {
     const [user, setUser] = useState([])
 
 
-    useEffect(() => {
+
+    const getPost = async () =>{
         const logChannel = localStorage.getItem("channelName")
-        axios.get(`http://localhost:8080/channel/messages/${logChannel}/`)
+        await axios.get(`http://localhost:8080/channel/messages/${logChannel}/`)
         .then(res => {
             console.log("Getting from :::::", res.data)
             setData(res.data)
         }).catch(err => console.log(err))
-    }, [data])
+
+    }
+
+    useEffect( () => {
+     getPost()
+    }, [])
+
+    useEffect( () => {
+        const logChannel = localStorage.getItem("channelName")
+        axios.get(`http://localhost:8080/channel/messages/${logChannel}/`)
+        .then(res => {
+            console.log("Getting from :::::", res.data)
+            setUser(res.data)
+        }).catch(err => console.log(err))
+    }, [])
 
     // http://localhost:8080/channel/messages/{channelName}/
 
@@ -34,7 +49,7 @@ function ChannelPage() {
         }).catch(err => console.log(err))
     }, [])
 
-    const headName = data.map((data) => {
+    const headName = user.map((data) => {
         return (
             <h1 className="box3 text-3xl text-white text-center">{data.channel.channelName}</h1>
         )
@@ -42,11 +57,6 @@ function ChannelPage() {
         
     })
 
-    const userList = user.map((data) => {
-        return(
-            <td>{data.userName}</td>
-        )
-    })
 
     const arr = data.map((data, index) => {
         return (

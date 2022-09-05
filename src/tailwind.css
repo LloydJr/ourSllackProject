@@ -10,6 +10,11 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.userIcon {
+  text-align: center;
+  
+}
+
 .selectJawn {
   max-width: 600px;
 }
