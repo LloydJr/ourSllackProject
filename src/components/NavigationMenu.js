@@ -57,11 +57,15 @@ function NavigationMenu(props) {
           onClick={props.closeMenu}><SearchIcon/>Search Channels</Link>
         </li>
         <li>
-          <Link to="/about" className="text-blue-500 py-3 border-b block" 
+          <Link to="/put_in_user" className="text-blue-500 py-3 border-b block" 
+          onClick={props.closeMenu}><SearchIcon/>Add user to channel</Link>
+        </li>
+        <li>
+          <Link to="/add_channel" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><AddIcon />Add Channel</Link>
         </li>
         <li>
-          <Link to="/about" className="text-blue-500 py-3 border-b block" 
+          <Link to="/remove_channel" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><RemoveIcon />Remove Channel</Link>
         </li>
         <li>
