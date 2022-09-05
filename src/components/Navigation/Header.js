@@ -1,11 +1,7 @@
 import React from 'react'
-import imageSllacker from './images/sllacker.png'
-import userIcon from './images/149071.png'
-import searchIcon from './images/1024px-Search_Icon.svg.png'
-import App from '../App'
+import imageSllacker from '../images/sllacker.png'
 import styled from 'styled-components'
 import Navigation from './Navigation'
-
 
 
 function Header() {

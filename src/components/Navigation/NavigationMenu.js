@@ -1,13 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import InsertCommentIcon from '@mui/icons-material/InsertComment';
-import InboxIcon from '@mui/icons-material/Inbox';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InfoIcon from '@mui/icons-material/Info';
 import LogoutIcon from '@mui/icons-material/Logout';
-import MuiAccordion from './MuiAccordion';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
@@ -59,6 +55,10 @@ function NavigationMenu(props) {
         <li>
           <Link to="/put_in_user" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><SearchIcon/>Add user to channel</Link>
+        </li>
+        <li>
+          <Link to="/put_out_user" className="text-blue-500 py-3 border-b block" 
+          onClick={props.closeMenu}><RemoveIcon/>Remove user from channel</Link>
         </li>
         <li>
           <Link to="/add_channel" className="text-blue-500 py-3 border-b block" 

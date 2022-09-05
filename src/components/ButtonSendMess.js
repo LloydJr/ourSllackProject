@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useState} from 'react'
 import axios from 'axios';
-import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
-import { height } from '@mui/system';
-import Stack from '@mui/material/TextField'
-import { WindowSharp } from '@mui/icons-material';
+
 
 
  function ButtonSendMess(){
@@ -15,7 +12,6 @@ import { WindowSharp } from '@mui/icons-material';
     const [data1, setData] = useState('')
 
     const handleSubmit = () => {
-
 
         const loggedInUser = localStorage.getItem("user")
         const loggedChannel = localStorage.getItem("channelName")
@@ -59,9 +55,6 @@ import { WindowSharp } from '@mui/icons-material';
         </Grid>
            </Box>
 
-       
-
-         
 )
 
 
