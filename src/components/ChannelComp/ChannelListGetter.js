@@ -10,6 +10,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import './ChannelListGetter.css'
 
 
 
@@ -19,7 +20,7 @@ export default function ChannelListGetter() {
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
     const[message, setMessage] = useState([])
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:8080/channel/all/list`)
@@ -41,7 +42,7 @@ export default function ChannelListGetter() {
               value.push(options[i].value);
               localStorage.setItem('channelName', value[0])
               setChannel(value)
-              navigate("/current_channel")
+              // navigate("/current_channel")
 
             }
           }
@@ -67,8 +68,8 @@ export default function ChannelListGetter() {
 
 
         return (
-            <div className='text-white'
->
+            <div className='text-white'>
+              <div className='box'>
                 <Select
                   multiple
                   native
@@ -84,6 +85,7 @@ export default function ChannelListGetter() {
                     {name} </option>
                   )}
                 </Select>
+                </div>
 
 
               {/* <ul>

@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    min-width: 100%;
+    height: 100vh;
+    margin: 0vw;
+    padding: 20vw 40vw;
+    position: relative;
+    align-content: center;
+    align-items: center;
+}
+
+.box Select{
+    font-size: 35px;
+    text-align: center;
+    margin: 0 0 .1vh 0;
+    background-color:rgb(109, 146, 221);
+    border: 5px solid black;
+}
