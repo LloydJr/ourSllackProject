@@ -45,7 +45,7 @@ function NavigationMenu(props) {
           onClick={props.closeMenu}>Saved Items</Link>
         </li> */}
         <li>
-          <Link to="/channel_browser" className="text-blue-500 py-3 border-b block" 
+          <Link to="/current_channel" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><ChatIcon/>Current Channel</Link>
         </li>
         {/* <li>
@@ -53,7 +53,7 @@ function NavigationMenu(props) {
           onClick={props.closeMenu}>People & User Groups</Link>
       </li> */}
         <li>
-          <Link to="/channels" className="text-blue-500 py-3 border-b block" 
+          <Link to="/search_channel" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><SearchIcon/>Search Channels</Link>
         </li>
         <li>

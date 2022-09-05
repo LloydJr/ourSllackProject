@@ -118,7 +118,7 @@ function App1() {
         <div className="title">Sign In</div>
         {isSubmitted ? <div>User is successfully logged in
           <div >
-          <Link to="/channel_browser" className="title">Click Here</Link>
+          <Link to="/search_channel" className="title">Click Here</Link>
           </div>
         </div> : renderForm}
 

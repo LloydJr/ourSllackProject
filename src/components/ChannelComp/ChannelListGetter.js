@@ -41,7 +41,7 @@ export default function ChannelListGetter() {
               value.push(options[i].value);
               localStorage.setItem('channelName', value[0])
               setChannel(value)
-              navigate("/channel_browser")
+              navigate("/current_channel")
 
             }
           }
@@ -101,7 +101,7 @@ export default function ChannelListGetter() {
                     
                   )}</ul>
                   <ButtonSendMess /> */}
-                  <div href="/channel_browser" variant="contained" />
+                  <div href="/current_channel" variant="contained" />
             </div>
           );
 

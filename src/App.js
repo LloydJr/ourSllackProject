@@ -34,9 +34,9 @@ function App() {
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
-          <Route path="/channel_browser" element={<ChannelBrowser />} />
+          <Route path="/current_channel" element={<ChannelBrowser />} />
           <Route path="/sign_up_successful" element={<SuccessfulSignUp />} />
-          <Route path="/channels" element={< ChannelListGetter/>} />
+          <Route path="/search_channel" element={< ChannelListGetter/>} />
         </Routes> 
         
         {/* <Footer /> */}
