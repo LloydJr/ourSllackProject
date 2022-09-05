@@ -73,6 +73,7 @@ public class MessageController {
                 messageRepository.save(message);
             }
         }
+
         channelRepository.save(channel);
         userRepository.save(user);
 

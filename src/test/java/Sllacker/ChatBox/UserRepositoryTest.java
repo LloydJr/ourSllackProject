@@ -53,6 +53,47 @@ public class UserRepositoryTest {
     }
 
 
+    @Test
+    public void testCreate_Test() {
+        User user = new User();
 
+        user.setUserName("Test");
+        user.setPassword("Monkeyrun");
+
+        User saveUser = userRepo.save(user);
+
+        User existUser = testEntityManager.find(User.class, saveUser.getUserID());
+
+        assertThat(existUser.getUserName()).isEqualTo(user.getUserName());
+
+    }
+
+
+    @Test
+    public void testDelete_Test() {
+
+        User user = userRepo.findByUsername("Test2");
+
+        userRepo.delete(user);
+
+        assertThat(userRepo.findByUsername("Test2")).isNull();
+
+    }
+
+
+    @Test
+    public void testUpdate_Test() {
+
+        User user = userRepo.findByUsername("Test");
+
+        user.setUserName("Test2");
+
+        User savedUser = userRepo.save(user);
+
+        User existUser = testEntityManager.find(User.class, savedUser.getUserID());
+
+        assertThat(existUser.getUserName()).isEqualTo(user.getUserName());
+
+    }
 
 }
