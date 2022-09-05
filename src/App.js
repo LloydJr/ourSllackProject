@@ -1,17 +1,9 @@
-import react from 'react';
-import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+import Header from './components/Navigation/Header';
+import ChannelAdd from './components/ChannelAdd/ChannelAdd';
+import ChannelRemove from './components/ChannelRemove/ChannelRemove';
 import "./App.css"
-import Sidebar from "./components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MuiAccordion from "./components/MuiAccordion";
-import ChatRoom from "./components/ChatRoom";
-import ChannelPage from "./components/ChannelComp/ChannelPage";
-import {container} from "./App.css"
-import Box from '@mui/material/Box';
-import Footer from "./components/Footer";
 import About from "./components/Pages/About";
-import UserComponent from './components/UserComponent';
 import App1 from './components/App1'
 import DirectMessage from "./components/Pages/DirectMessage"
 import ChannelBrowser from "./components/Pages/ChannelBrowser";
@@ -19,8 +11,7 @@ import UserProfile from './components/Pages/UserProfile';
 import Register from './components/Pages/Register'
 import SuccessfulSignUp from './components/Pages/SuccessfulSignUp';
 import ChannelListGetter from "./components/ChannelComp/ChannelListGetter";
-import ChannelAdd from './components/Pages/ChannelAdd';
-import ChannelRemove from './components/Pages/ChannelRemove';
+import PutUserOut from './components/RemoveFromChannel/PutUserOut';
 import PutUserIn from './components/AddToChannel/PutUserIn';
 
 
@@ -44,6 +35,7 @@ function App() {
           <Route path="/add_channel" element={<ChannelAdd/>} />
           <Route path="remove_channel" element={<ChannelRemove/>} />
           <Route path="/put_in_user" element={<PutUserIn/>} />
+          <Route path="/put_out_user" element={<PutUserOut/>} />
         </Routes> 
         
         {/* <Footer /> */}

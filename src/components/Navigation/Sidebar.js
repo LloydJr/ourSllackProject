@@ -1,8 +1,5 @@
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';import React from 'react'
 import styled from 'styled-components'
-import App from '../App';
 import CreateIcon from '@mui/icons-material/Create';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SidebarOption from './SidebarOption';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import InboxIcon from '@mui/icons-material/Inbox';

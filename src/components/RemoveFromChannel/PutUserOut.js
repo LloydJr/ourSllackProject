@@ -8,13 +8,13 @@ import Select from '@mui/material/Select';
 
 export default function PutUserOut() {
     const [data, setData] = useState([])
-    const[message, setMessage] = useState([])
     const [user, setUser] = useState('')
     const [channel, setChannel] = useState('')
     // let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/all/list`)
+      const loggedUser = localStorage.getItem("user")
+        axios.get(`http://localhost:8080/channel/all/list/${loggedUser}`)
         .then(res => {
             setData(res.data)
         }).catch(err => console.log(err))

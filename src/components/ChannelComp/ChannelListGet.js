@@ -22,7 +22,6 @@ function ChannelPage() {
        }).catch(err => console.log(err))
     }, [])
 
-    // http://localhost:8080/channel/messages/{channelName}/
 
    
     const headName = user.map((data) => {

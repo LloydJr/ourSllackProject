@@ -8,13 +8,13 @@ import Select from '@mui/material/Select';
 
 export default function PutUserin() {
     const [data, setData] = useState([])
-    const[message, setMessage] = useState([])
     const [user, setUser] = useState('')
     const [channel, setChannel] = useState('')
     // let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/channel/all/list`)
+      const loggedUser = localStorage.getItem("user")
+        axios.get(`http://localhost:8080/channel/all/list/${loggedUser}`)
         .then(res => {
             setData(res.data)
         }).catch(err => console.log(err))
@@ -96,63 +96,3 @@ export default function PutUserin() {
 
 }
 
-function ChannelListGet() {
-
-    const [data, setData] = useState([])
-    const[channel, setChannel] = useState()
-    const[message, setMessage] = useState([])
-    // let navigate = useNavigate();
-
-    useEffect(() => {
-        axios.get(`http://localhost:8080/channel/all/list`)
-        .then(res => {
-            setData(res.data)
-        }).catch(err => console.log(err))
-    }, [])
-
-    // const [personName, setPersonName] = React.useState();
-
-    
-    
-        const handleChangeMultiple = async (event) => {
-          const { options } = event.target;
-          const value = []; 
-          for (let i = 0, l = options.length; i < l; i += 1) {
-            if (options[i].selected) {
-              value.push(options[i].value);
-              localStorage.setItem('channelName', value[0])
-              setChannel(value)
-              // navigate("/current_channel")
-
-            }
-          }
-
-          
-        };
-
-    
-
-        return (
-            <div className='text-white'>
-              <div className='box'>
-                <Select
-                  multiple
-                  native
-                  onChange={handleChangeMultiple}
-                  value={channel}
-                  label="Native"
-                  inputProps={{
-                    id: 'select-multiple-native',
-                  }}
-                  >
-                  {data.map(name => 
-                    <option value={name} className='text-white'> 
-                    {name} </option>
-                  )}
-                </Select>
-                </div>
-
-                  <div href="/current_channel" variant="contained" />
-            </div>
-          );
-  }

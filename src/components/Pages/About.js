@@ -1,5 +1,5 @@
 import React from 'react'
-import MuiAccordion from '../MuiAccordion'
+import MuiAccordion from '../Navigation/MuiAccordion'
 
 function About() {
   return (
