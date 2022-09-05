@@ -128,6 +128,9 @@ public class ChannelController {
     @PathVariable String userName, User user) {
         channel = channelRepository.findByChannelName(channelName);
         user = userRepository.findByUsername(userName);
+        if (channel.getChannel_users().contains(user)){
+            return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.CONFLICT);
+        }
         channel.getChannel_users().add(user);
         user.getChannels().add(channel);
         userRepository.save(user);
@@ -157,7 +160,6 @@ public class ChannelController {
                 return new ResponseEntity<>(channel.getMessage(), HttpStatus.OK);
             }
         }
-
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
