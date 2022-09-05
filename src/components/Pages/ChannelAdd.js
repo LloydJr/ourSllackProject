@@ -38,7 +38,7 @@ handleSubmit = event => {
     render() {
         return (
             <div className = 'form-box'>
-                <h5 className = "form-step">    New Channel</h5>
+                <h5 className = "form-step">New Channel</h5>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Channel:
