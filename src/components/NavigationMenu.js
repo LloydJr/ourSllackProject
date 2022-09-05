@@ -8,6 +8,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InfoIcon from '@mui/icons-material/Info';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MuiAccordion from './MuiAccordion';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import SearchIcon from '@mui/icons-material/Search';
+import ChatIcon from '@mui/icons-material/Chat';
 
 
 
@@ -42,23 +46,23 @@ function NavigationMenu(props) {
         </li> */}
         <li>
           <Link to="/channel_browser" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}><BookmarkBorderIcon/>Channel Browser</Link>
+          onClick={props.closeMenu}><ChatIcon/>Current Channel</Link>
         </li>
         {/* <li>
           <Link to="/about" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}>People & User Groups</Link>
-        </li>
-        <li>
-          <Link to="/about" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}>Apps</Link>
-        </li>
-        <li>
-          <Link to="/about" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}>File Browser</Link>
-        </li> */}
+      </li> */}
         <li>
           <Link to="/channels" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}><ExpandMoreIcon/>Channels</Link>
+          onClick={props.closeMenu}><SearchIcon/>Search Channels</Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-blue-500 py-3 border-b block" 
+          onClick={props.closeMenu}><AddIcon />Add Channel</Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-blue-500 py-3 border-b block" 
+          onClick={props.closeMenu}><RemoveIcon />Remove Channel</Link>
         </li>
         <li>
           <Link to="/direct_messages" className="text-blue-500 py-3 border-b block" 

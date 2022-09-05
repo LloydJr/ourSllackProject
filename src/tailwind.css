@@ -10,9 +10,14 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.centeringPlease {
+  text-align: center;
+
+}
+
 .userIcon {
   text-align: center;
-  
+  font-size: large;
 }
 
 .selectJawn {
