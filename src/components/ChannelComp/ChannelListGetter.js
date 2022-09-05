@@ -20,7 +20,7 @@ export default function ChannelListGetter() {
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
     const[message, setMessage] = useState([])
-    // let navigate = useNavigate();
+    let navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:8080/channel/all/list`)
@@ -41,7 +41,7 @@ export default function ChannelListGetter() {
               value.push(options[i].value);
               localStorage.setItem('channelName', value[0])
               setChannel(value)
-              // navigate("/current_channel")
+              navigate("/current_channel")
 
             }
           }

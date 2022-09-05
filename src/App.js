@@ -19,6 +19,10 @@ import UserProfile from './components/Pages/UserProfile';
 import Register from './components/Pages/Register'
 import SuccessfulSignUp from './components/Pages/SuccessfulSignUp';
 import ChannelListGetter from "./components/ChannelComp/ChannelListGetter";
+import ChannelAdd from './components/Pages/ChannelAdd';
+import ChannelRemove from './components/Pages/ChannelRemove';
+import PutUserIn from './components/AddToChannel/PutUserIn';
+
 
 function App() {
   return (
@@ -37,6 +41,9 @@ function App() {
           <Route path="/current_channel" element={<ChannelBrowser />} />
           <Route path="/sign_up_successful" element={<SuccessfulSignUp />} />
           <Route path="/search_channel" element={< ChannelListGetter/>} />
+          <Route path="/add_channel" element={<ChannelAdd/>} />
+          <Route path="remove_channel" element={<ChannelRemove/>} />
+          <Route path="/put_in_user" element={<PutUserIn/>} />
         </Routes> 
         
         {/* <Footer /> */}
