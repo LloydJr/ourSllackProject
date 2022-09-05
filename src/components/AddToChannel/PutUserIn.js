@@ -43,7 +43,7 @@ export default function PutUserin() {
    
 
    const handleSubmit = (event) => {
-             event.preventDefault()
+            event.preventDefault()
             const localChannel = localStorage.getItem('channelName')
             axios.put(`http://localhost:8080/channel/add/${user}/${localChannel}`)
             .then(
@@ -130,17 +130,7 @@ function ChannelListGet() {
           
         };
 
-      //  const handleChannelChange = async () => {
-      //       const channelNameG = localStorage.getItem('channelName')
-      //       axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
-      //       .then(res => {
-      //           console.log("Getting from :::::", res.data)
-      //           setMessage(res.data)
-      //       }).catch(err => console.log(err))
-      //   }
-
-        
-
+    
 
         return (
             <div className='text-white'>
@@ -162,22 +152,6 @@ function ChannelListGet() {
                 </Select>
                 </div>
 
-
-              {/* <ul>
-                <h1 className="box3 text-3xl text-white text-center">
-              {localStorage.getItem('channelName')}
-              </h1>
-
-                {message.map(mes => 
-                    <li className='box2'>
-                        <AccountCircleIcon/>{mes.userName}
-                        <div>
-                      {mes.message}
-                      </div>
-                    </li>
-                    
-                  )}</ul>
-                  <ButtonSendMess /> */}
                   <div href="/current_channel" variant="contained" />
             </div>
           );
