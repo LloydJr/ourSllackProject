@@ -81,7 +81,7 @@ export default function PutUserin() {
             <form onSubmit={handleSubmit}>
                 <label className='text-3xl'>
                     User:
-                    <input type='text' name="user" onChange={(e) => setUser(e.target.value)}/>
+                    <input className='text-black' type='text' name="user" onChange={(e) => setUser(e.target.value)}/>
                 </label>
                 {/* <label>
                     Channel:

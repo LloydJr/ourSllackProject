@@ -55,7 +55,7 @@ function NavigationMenu(props) {
         </li>
         <li>
           <Link to="/put_in_user" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}><SearchIcon/>Add User to Channel</Link>
+          onClick={props.closeMenu}><AddIcon/>Add user to channel</Link>
         </li>
         <li>
           <Link to="/put_out_user" className="text-blue-500 py-3 border-b block" 
