@@ -35,7 +35,7 @@ handleSubmit = event => {
             <form onSubmit={this.handleSubmit}>
                 <label className='text-3xl'>
                     Channel:
-                    <input type='text' name="channelName" value = {this.state.channelName} onChange={this.handleChange}/>
+                    <input className='text-black' type='text' name="channelName" value = {this.state.channelName} onChange={this.handleChange}/>
                 </label>
                 <Button variant="contained" type="submit">Remove</Button>
             </form>
