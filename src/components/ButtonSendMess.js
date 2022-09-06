@@ -4,6 +4,8 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid'
+import styled from 'styled-components'
+
 
 
 
@@ -26,18 +28,19 @@ import Grid from '@mui/material/Grid'
     return (
 
         
-        <Box
+        <Content
         sx={{
             // width: 500,
             maxWidth: '100%',
             
-        }}>
+        }}
+        >
             <Grid 
         container
         direction="column"
         justifyContent="flex-start"
         alignItems="stretch"
-        className="box2"
+
         >
     
        <TextField
@@ -47,8 +50,8 @@ import Grid from '@mui/material/Grid'
           multiline
           rows={4}
           onChange={(e) => setData(e.target.value)}
-          className="bg-gray-200"
-        />
+          className="bg-gray-200 b"
+          />
         <form onSubmit={handleSubmit}>
         <button onClick={() => {textInput.current.value=""}} 
            className="box2 rightJawn">
@@ -56,7 +59,7 @@ import Grid from '@mui/material/Grid'
             </button>
             </form>
         </Grid>
-           </Box>
+           </Content>
 
 )
 
@@ -65,8 +68,10 @@ import Grid from '@mui/material/Grid'
 }
 
 export default ButtonSendMess
-
-
-
-
-
+const Content = styled.div`
+flex-basis: auto;
+margin: 10px 275px 0px 275px;
+min-height:0px;
+_height:500px
+background:
+`

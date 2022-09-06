@@ -13,7 +13,6 @@ function Header() {
     text-3xl text-white text-center
     border-t-2 border-white
     inset-x-0
-    
     top-0
     p-4 rgb(89, 121, 180)
     border-b p-3 flex justify-between items-center Header">

@@ -13,7 +13,7 @@ import SuccessfulSignUp from './components/Pages/SuccessfulSignUp';
 import ChannelListGetter from "./components/ChannelComp/ChannelListGetter";
 import PutUserOut from './components/RemoveFromChannel/PutUserOut';
 import PutUserIn from './components/AddToChannel/PutUserIn';
-
+import Sidebar from './components/Navigation/Sidebar'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <Router>
 
         <Header />
-
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Register />} /> {/*This is also the path to logout.*/}
           <Route path="/sign_in" element={<App1 />}/>
@@ -37,7 +37,7 @@ function App() {
           <Route path="/put_in_user" element={<PutUserIn/>} />
           <Route path="/put_out_user" element={<PutUserOut/>} />
         </Routes> 
-        
+   
         {/* <Footer /> */}
       </Router>
     </div>

@@ -10,6 +10,31 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.widthJawn {
+  width: 150px
+}
+
+.headerHeader {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.contentHeader {
+  padding: 16px;
+}
+
+.stickyContentHeader {
+  padding-top: 102px;
+}
+
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+
 .a-box{
   min-width: 100%;
   height: 100vh;

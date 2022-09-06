@@ -16,7 +16,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 function Sidebar() {
   return (
-    <SidebarContainer className='fixed z-0'>
+    <SidebarContainer className='widthJawn fixed'>
 
       <SidebarHeader>
         <SidebarInfo>
@@ -54,6 +54,7 @@ background-color:  rgb(89, 121, 180);
 color: white;
 flex: 0.3;
 margin-top: 8vh;
+width: 150px
 
 >hr {
   margin-top: 7px;
