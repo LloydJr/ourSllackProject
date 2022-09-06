@@ -55,7 +55,7 @@ export default function ChannelListGetter() {
             <div className='text-white'>
               <div className='box'>
                 <label className='labelme'>
-                Channel list
+                Channel(s):
                 </label>
                 <Select
                   multiple

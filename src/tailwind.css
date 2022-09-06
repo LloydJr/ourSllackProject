@@ -10,6 +10,26 @@ HeaderSearch {
   border: 1px gray solid;
 }
 
+.a-box{
+  min-width: 100%;
+  height: 100vh;
+  margin: 0vw;
+  padding: 10vw;
+  align-content: center;
+  align-items: center;
+}
+
+.the-box{
+  min-width: 100%;
+  height: 100vh;
+  margin: 0vw;
+  padding: 10vw;
+  align-content: center;
+  align-items: center;
+  padding-left: 325px;
+  padding-right: 325px;
+}
+
 .centeringPlease {
   text-align: center;
 
@@ -72,8 +92,8 @@ vertical-align: center;
   color: #fff;
   border:#fff;
   border-style:ridge;
-  margin-left: 700px;
-  margin-right: 700px;
+  padding-left: 500px;
+  padding-right: 500px;
 }
 
 
