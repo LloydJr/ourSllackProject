@@ -59,7 +59,7 @@ public class ChannelController {
 
 
     @GetMapping("/all/list")
-    public ResponseEntity<List<String>> stringListOfAllChannels (Channel channel) {
+    public ResponseEntity<List<String>> stringListOfAllChannels(Channel channel) {
         List<String> channelNames = new ArrayList<>();
         for (int i = 0; i < channelRepository.findAll().size(); i++) {
             channelNames.add(channelRepository.findAll().get(i).getChannelName());
@@ -68,7 +68,7 @@ public class ChannelController {
     }
 
     @GetMapping("/all/list/{userName}")
-    public ResponseEntity<List<String>> stringListOfUserChannels (@PathVariable String userName, User user, Channel channel) {
+    public ResponseEntity<List<String>> stringListOfUserChannels(@PathVariable String userName, User user, Channel channel) {
         List<String> channelNames = new ArrayList<>();
         user = userRepository.findByUsername(userName);
         List<Channel> userChannels = user.getChannels();
@@ -79,7 +79,7 @@ public class ChannelController {
     }
 
     @GetMapping("/all/users/{channelName}")
-    public ResponseEntity<List<String>> stringListOfChannelUsers (@PathVariable String channelName, User user, Channel channel) {
+    public ResponseEntity<List<String>> stringListOfChannelUsers(@PathVariable String channelName, User user, Channel channel) {
         List<String> userNames = new ArrayList<>();
         channel = channelRepository.findByChannelName(channelName);
         List<User> userChannels = channel.getChannel_users();
@@ -125,9 +125,12 @@ public class ChannelController {
 
     @PutMapping("/add/{userName}/{channelName}")
     public ResponseEntity<List<Channel>> addUserToChannel(@PathVariable String channelName, Channel channel,
-    @PathVariable String userName, User user) {
+                                                          @PathVariable String userName, User user) {
         channel = channelRepository.findByChannelName(channelName);
         user = userRepository.findByUsername(userName);
+        if (channel.getChannel_users().contains(user)) {
+            return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.CONFLICT);
+        }
         channel.getChannel_users().add(user);
         user.getChannels().add(channel);
         userRepository.save(user);
@@ -138,7 +141,7 @@ public class ChannelController {
 
     @PutMapping("/remove/{userName}/{channelName}")
     public ResponseEntity<List<Channel>> removeUserFromChannel(@PathVariable String channelName,
-    @PathVariable String userName, Channel channel, User user) {
+                                                               @PathVariable String userName, Channel channel, User user) {
 
         channel = channelRepository.findByChannelName(channelName);
         user = userRepository.findByUsername(userName);
@@ -150,14 +153,8 @@ public class ChannelController {
     }
 
     @GetMapping("/messages/{channelName}/")
-    public ResponseEntity<List<Message>> getMessagesInChannel (@PathVariable String channelName, Channel channel){
-        for (int i = 0; i < channelRepository.findAll().size(); i++) {
-            if (channelName.equalsIgnoreCase(channelRepository.findAll().get(i).getChannelName())) {
-                channel = channelRepository.findAll().get(i);
-                return new ResponseEntity<>(channel.getMessage(), HttpStatus.OK);
-            }
-        }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<List<Message>> getMessagesInChannel(@PathVariable String channelName, Channel channel) {
+        channel = channelRepository.findByChannelName(channelName);
+        return new ResponseEntity<>(channel.getMessage(), HttpStatus.OK);
     }
 }
