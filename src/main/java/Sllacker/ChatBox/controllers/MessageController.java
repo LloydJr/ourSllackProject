@@ -66,18 +66,12 @@ public class MessageController {
         message.setChannel(channel);
         user.getMessages().add(message);
         channel.getMessage().add(message);
+        message.setUserName(userName);
         messageRepository.save(message);
-        for (int i = 0; i < messageRepository.findAll().size(); i++) {
-            if (messageRepository.findAll().get(i).equals(message)) {
-                message.setUserName(userName);
-                messageRepository.save(message);
-            }
-        }
-
         channelRepository.save(channel);
         userRepository.save(user);
 
-        return new ResponseEntity<>(message, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 

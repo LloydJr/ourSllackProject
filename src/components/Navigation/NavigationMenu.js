@@ -68,10 +68,10 @@ function NavigationMenu(props) {
           <Link to="/remove_channel" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><RemoveIcon />Remove Channel</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/direct_messages" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><ExpandMoreIcon/>Direct Messages</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/about" className="text-blue-500 py-3 border-b block" 
           onClick={props.closeMenu}><InfoIcon/>About</Link>
