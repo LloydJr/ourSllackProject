@@ -49,13 +49,21 @@ function App1() {
 
   const handleSubmit = async (event) => {
     //Prevent page reload
+    localStorage.setItem('user', userName)
     event.preventDefault();  
     const response = await axios.get(`http://localhost:8080/user/find/${userName}`);
     
     console.log(response?.data);
     console.log(response);
 
-    localStorage.setItem('user', userName)
+    // let loggedInUser;
+    // if(response=404){
+    //   localStorage.setItem('user', null)
+    // } else {
+    //   loggedInUser = localStorage.setItem('user', userName)
+    // }
+
+    
     const loggedInUser = localStorage.getItem("user");
     console.log(loggedInUser);
 
