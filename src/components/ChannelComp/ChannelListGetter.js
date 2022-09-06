@@ -54,6 +54,9 @@ export default function ChannelListGetter() {
         return (
             <div className='text-white'>
               <div className='box'>
+                <label className='labelme'>
+                Channel list
+                </label>
                 <Select
                   multiple
                   native
@@ -63,8 +66,7 @@ export default function ChannelListGetter() {
                   inputProps={{
                     id: 'select-multiple-native',
                   }}
-                  >
-                  {data.map(name => 
+                  >                  {data.map(name => 
                     <option value={name} className='text-white'> 
                     {name} </option>
                   )}

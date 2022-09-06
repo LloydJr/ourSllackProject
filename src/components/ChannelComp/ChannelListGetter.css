@@ -23,3 +23,8 @@
     padding: 5vh 0 0 5vh;
     width: auto;
 }
+
+.box label{
+ font-size: 35px;
+ width: auto;
+}
