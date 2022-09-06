@@ -44,7 +44,7 @@ handleSubmit = event => {
                     Channel:
                     <input className='text-black' type='text' name="channelName" onChange={this.handleChange}/>
                 </label>
-                <Button variant="contained" type="submit">Add Channel</Button>
+                <Button variant="contained" type="submit" href='/search_channel'>Add Channel</Button>
             </form>
             </div>
         );

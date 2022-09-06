@@ -5,6 +5,8 @@ import axios from 'axios'
 import "./Register.css";
 import { Link } from 'react-router-dom'
 import SuccessfulSignUp from './SuccessfulSignUp';
+import styled from 'styled-components'
+
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
@@ -92,6 +94,7 @@ const Register = () => {
         {success ? (
             <SuccessfulSignUp/>
         ) : (
+            <Content>
         <section className='section text-white'> 
             <p ref={errRef} className={errMsg ? "errmsg" : 
             "offscreen"} aria-live="assertive">{errMsg}</p>
@@ -186,9 +189,22 @@ const Register = () => {
                 </span>
             </p>
         </section>
+        </Content>
         )}
         </>
     )
 }
 
 export default Register
+
+const Content = styled.div`
+justified-content: center:
+flex-basis: auto;
+border:2px solid white;
+width:auto;
+margin: 10px 275px 0px 275px;
+min-height:0px;
+_height:500px
+background-color: rgb(27, 255, 27);
+padding: 10px;
+`

@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 import axios from "axios"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import styled from 'styled-components'
 
 
 
@@ -68,7 +69,9 @@ function ChannelPage() {
         position: 'absolute'
         
       }
-      }>
+      }
+      className='box2'
+      >
         </h1>
       {headName}
        <div style={{
@@ -79,18 +82,17 @@ function ChannelPage() {
         </tr> 
         {data.map((data1) => { 
            const arr = (
-        <div className="box2 text-center py-8 px-8 mx-auto rounded-xl sm:py-4">
-            <div class="text-center space-y-2 sm:text-left">
-              <div class="space-y-0.5">
-                
-                
+        <div className=" text-center">
+            <div class="text-center space-y-2 sm:text-left text-white">
+              
+              <Content class="space-y-0.5">
                 <AccountCircleIcon/>
                 {data1.userName}
-            
-                <p class="text-lg text-white font-semibold">
+                <p class="text-lg text-white font-semibold ">
                 {data1.message} 
                 </p>
-              </div>
+                </Content>
+
             </div>
           </div>   
            )
@@ -109,3 +111,15 @@ function ChannelPage() {
 }
 
 export default ChannelPage;
+
+const Content = styled.div`
+justified-content: center:
+flex-basis: auto;
+border:2px solid white;
+width:auto;
+margin: 10px 275px 0px 275px;
+min-height:0px;
+_height:500px
+background-color: rgb(27, 255, 27);
+padding: 10px;
+`

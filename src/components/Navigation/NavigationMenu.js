@@ -8,6 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
 import ChatIcon from '@mui/icons-material/Chat';
+import TagIcon from '@mui/icons-material/Tag';
 
 
 
@@ -50,7 +51,7 @@ function NavigationMenu(props) {
       </li> */}
         <li>
           <Link to="/search_channel" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}><SearchIcon/>Search Channels</Link>
+          onClick={props.closeMenu}><TagIcon/>Select Channels</Link>
         </li>
         <li>
           <Link to="/put_in_user" className="text-blue-500 py-3 border-b block" 
@@ -58,7 +59,7 @@ function NavigationMenu(props) {
         </li>
         <li>
           <Link to="/put_out_user" className="text-blue-500 py-3 border-b block" 
-          onClick={props.closeMenu}><RemoveIcon/>Remove user from channel</Link>
+          onClick={props.closeMenu}><RemoveIcon/>Remove User from Channel</Link>
         </li>
         <li>
           <Link to="/add_channel" className="text-blue-500 py-3 border-b block" 
