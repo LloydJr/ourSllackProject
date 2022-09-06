@@ -20,10 +20,10 @@ function Timer() {
   return (
     <div>
         <h1>
-            {currentDate}
+            {currentTime}
         </h1>
         <h2>
-            {currentTime}
+            {currentDate}
         </h2>
 
     </div>

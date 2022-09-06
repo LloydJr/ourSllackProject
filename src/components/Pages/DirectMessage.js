@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import GetDm from '../DirectComponent/GetDm'
 
 function DirectMessage() {
 
@@ -7,7 +8,7 @@ function DirectMessage() {
   return (
 
 
-    <div>DirectMessage</div>
+    <div><GetDm/></div>
   )
 }
 

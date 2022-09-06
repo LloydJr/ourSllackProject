@@ -34,7 +34,7 @@ public class DirectMessageController {
         this.repository = repository;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<DirectMessage>> getListDm() {
         List<DirectMessage> directMessageList = repository.findAll();
         return new ResponseEntity<>(directMessageList, HttpStatus.OK);

@@ -39,13 +39,14 @@ function ChannelPage() {
             <div className="box2 text-center py-8 px-8 mx-auto rounded-xl sm:py-4">
             <div class="text-center space-y-2 sm:text-left">
               <div class="space-y-0.5">
-                
-                <p class="text-slate-500 font-medium ">
-                {data.message}      </p>
-                <p class="text-lg text-white font-semibold">
+              <p class="text-lg text-white font-semibold">
                     < AccountCircleIcon/>
                 {data.userName}
                 </p>
+                
+                <p class="text-slate-500 font-medium ">
+                {data.message}      </p>
+
               </div>
             </div>
           </div>
