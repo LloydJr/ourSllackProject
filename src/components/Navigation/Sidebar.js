@@ -50,10 +50,9 @@ function Sidebar() {
 export default Sidebar
 
 const SidebarContainer = styled.div`
-background-color:  rgb(89, 121, 180);
 color: white;
 flex: 0.3;
-margin-top: 8vh;
+margin-top: 9vh;
 width: 150px
 
 >hr {
