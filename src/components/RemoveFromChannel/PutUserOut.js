@@ -55,7 +55,7 @@ export default function PutUserOut() {
 
     return(
         
-        <div>
+        <div className='box2 centeringPlease'>
             <div className='text-white'>
               <div >
                 <Select
@@ -76,10 +76,10 @@ export default function PutUserOut() {
                 </div>
                 </div>               
             
-        <div className = 'form-box'>
-                <h5 className = "form-step">Remove User</h5>
+        <div className = 'the-box centeringPlease'>
+                <h5 className = "text-5xl">Remove User</h5>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className='text-3xl'>
                     User:
                     <input type='text' name="user" onChange={(e) => setUser(e.target.value)}/>
                 </label>

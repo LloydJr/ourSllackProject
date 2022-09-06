@@ -55,7 +55,7 @@ export default function PutUserin() {
 
     return(
         
-        <div>
+        <div className='box2 centeringPlease'>
             <div className='text-white'>
               <div >
                 <Select
@@ -76,10 +76,10 @@ export default function PutUserin() {
                 </div>
                 </div>               
             
-        <div className = 'form-box'>
-                <h5 className = "form-step">Add User</h5>
+        <div className = 'the-box centeringPlease'>
+                <h5 className = "text-5xl">Add User</h5>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className='text-3xl'>
                     User:
                     <input type='text' name="user" onChange={(e) => setUser(e.target.value)}/>
                 </label>
@@ -87,7 +87,7 @@ export default function PutUserin() {
                     Channel:
                     <input type='text' name="channelName" onChange={(e) => setChannel(e.target.value)}/>
                 </label> */}
-                <Button variant="contained" type="submit">Add Channel</Button>
+                <Button variant="contained" type="submit" >Add Channel</Button>
             </form>
             </div>
             </div>

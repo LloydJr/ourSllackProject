@@ -30,14 +30,14 @@ handleSubmit = event => {
 
     render() {
         return (
-            <div className='form-box'>
-                <h5 classname = "form-step">Delete a Channel</h5>
+            <div className='the-box centeringPlease box2'>
+                <h5 className = "text-3xl">Remove Channel</h5>
             <form onSubmit={this.handleSubmit}>
-                <label>
+                <label className='text-3xl'>
                     Channel:
                     <input type='text' name="channelName" value = {this.state.channelName} onChange={this.handleChange}/>
                 </label>
-                <Button variant="contained" type="submit">Remove Channel</Button>
+                <Button variant="contained" type="submit">Remove</Button>
             </form>
             </div>
         );
