@@ -14,15 +14,35 @@
     align-items: center;
 }
 
-.box Select{
+#select-multiple-native{
     font-size: 35px;
-    text-align: center;
+    text-align: left;
     margin: 0 0 .1vh 0;
     background-color: rgb(31, 41, 57), rgb(109, 146, 221);
     border: 5px solid black;
     padding: 5vh 0 0 5vh;
     width: auto;
     
+}
+
+#select-multiple-native option.text-white{
+    color: #fff;
+    padding: 16px 0;
+
+}
+
+
+.select-special{
+    padding: 20px;
+}
+
+.select-box {
+    border: 2px solid blue;
+}
+
+.the-box .labelme{
+    font-size: 45px;
+
 }
 
 .box label{

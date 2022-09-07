@@ -53,10 +53,6 @@ export default function ChannelListGetter() {
         };
 
       
-
-        
-
-
         return (
           <div>
             <Header />
@@ -85,9 +81,6 @@ export default function ChannelListGetter() {
             </div>
             </div>
           );
-
-
-
 
 
 
