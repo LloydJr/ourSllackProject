@@ -12,7 +12,7 @@ export default function ChannelAdd() {
 
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();  
         console.log(user)
 
@@ -40,7 +40,7 @@ export default function ChannelAdd() {
                             Channel:
                             <input className='text-black' type='text' name="channelName" onChange={(e) => setUser(e.target.value)}/>
                         </label>
-                        <Button variant="contained" type="submit" href='/current_channel' >Add Channel</Button>
+                        <Button variant="contained" type="submit" >Add Channel</Button>
                     </form>
                     </div>
                     </div>
