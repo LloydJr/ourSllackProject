@@ -109,12 +109,12 @@ function App1() {
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className="input-container text-2xl">
           <label>Username </label>
           <input type="text"  onChange={(e) => setUserName(e.target.value)} name="uname" required />
           {renderErrorMessage("uname")}
         </div>
-        <div className="input-container">
+        <div className="input-container text-2xl">
           <label>Password </label>
           <input type="password" name="pass" required />
           {renderErrorMessage("pass")}
@@ -127,12 +127,12 @@ function App1() {
   );
 
   return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in
-          <div >
-          <Link to="/channel_home" className="title">Click Here</Link>
+    <div className="the-box">
+      <div className="box2">
+        <div className="centeringPlease text-5xl">Sign In</div>
+        {isSubmitted ? <div className="centeringPlease text-2xl">User is successfully logged in
+          <div className="centeringPlease text-3xl">
+          <Link to="/channel_home">Click Here</Link>
           </div>
         </div> : renderForm}
 

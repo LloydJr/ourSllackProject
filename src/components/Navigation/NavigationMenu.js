@@ -7,6 +7,8 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ChatIcon from '@mui/icons-material/Chat';
 import TagIcon from '@mui/icons-material/Tag';
+import HomeIcon from '@mui/icons-material/Home';
+
 
 
 
@@ -23,6 +25,10 @@ function NavigationMenu(props) {
                {loggedInUser}
             </span>
             <ul>
+            <li>
+          <Link to="/channel_home" className="text-blue-500 py-3 border-b block" 
+          onClick={props.closeMenu}><HomeIcon/>Home</Link>
+        </li>
         <li>
           <Link to="/user_profile" className="text-blue-500 py-3 border-t border-b block" 
           onClick={props.closeMenu}><AccountCircleIcon/>User Profile</Link>

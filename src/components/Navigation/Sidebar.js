@@ -4,6 +4,7 @@ import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import AddIcon from '@mui/icons-material/Add';
 import TagIcon from '@mui/icons-material/Tag';
 import RemoveIcon from '@mui/icons-material/Remove';
+import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom'
 
 
@@ -25,6 +26,10 @@ function Sidebar() {
       {/* <SidebarOption Icon={PersonIcon} title="User Profile" />
       <hr /> */}
 
+      <Link to="/channel_home">
+      <SidebarOption Icon={HomeIcon} title="Home" />
+      </Link>
+      <hr />
       <Link to="/current_channel">
       <SidebarOption Icon={InsertCommentIcon} title="Current Channel" />
       </Link>
