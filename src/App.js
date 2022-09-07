@@ -24,8 +24,8 @@ function App() {
       <Router>
 
         <Routes>
-          <Route path="/" element={<Register />} />  {/*This is also the path to logout. */}
-          <Route path="/sign_in" element={<App1 />}/>
+          <Route path="/register" element={<Register />} />  {/*This is also the path to logout. */}
+          <Route path="/" element={<App1 />}/>
           <Route path="/channel_home" element={<ChannelBrowserPart2/>} />
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />

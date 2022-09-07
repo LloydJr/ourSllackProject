@@ -111,12 +111,12 @@ function App1() {
       <form onSubmit={handleSubmit}>
         <div className="input-container text-2xl">
           <label>Username </label>
-          <input type="text"  onChange={(e) => setUserName(e.target.value)} name="uname" required />
+          <input type="text"  onChange={(e) => setUserName(e.target.value)} name="uname" required  className="text-black"/>
           {renderErrorMessage("uname")}
         </div>
         <div className="input-container text-2xl">
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input type="password" name="pass" required  className="text-black"/>
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
@@ -127,6 +127,10 @@ function App1() {
   );
 
   return (
+    <div>
+    <div className='sllackerJawn centerJawn'>
+    <img src={imageSllacker} alt="" />
+    </div>
     <div className="the-box">
       <div className="box2">
         <div className="centeringPlease text-5xl">Sign In</div>
@@ -138,6 +142,7 @@ function App1() {
 
 
       </div >
+    </div>
     </div>
     
   );
