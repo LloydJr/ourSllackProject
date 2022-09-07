@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 export default function ChannelAdd() {
 
-    const [data, setData] = useState([])
     const [user, setUser] = useState('')
 
 

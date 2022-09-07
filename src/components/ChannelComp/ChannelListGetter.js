@@ -4,6 +4,14 @@ import Select from '@mui/material/Select';
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './ChannelListGetter.css'
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import InboxIcon from '@mui/icons-material/Inbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+
 
 
 
@@ -12,6 +20,12 @@ export default function ChannelListGetter() {
 
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
+    const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -51,6 +65,7 @@ export default function ChannelListGetter() {
 
 
         return (
+
             <div className='text-white'>
               <div className='box'>
                 <label className='labelme'>
@@ -65,15 +80,12 @@ export default function ChannelListGetter() {
                   inputProps={{
                     id: 'select-multiple-native',
                   }}
-                  >                  {data.map(name => 
+                  >{data.map(name => 
                     <option value={name} className='text-white'> 
                     {name} </option>
                   )}
                 </Select>
                 </div>
-
-
-      
                   <div href="/current_channel" variant="contained" />
             </div>
           );
