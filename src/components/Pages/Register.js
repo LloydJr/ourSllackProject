@@ -6,6 +6,8 @@ import "./Register.css";
 import { Link } from 'react-router-dom'
 import SuccessfulSignUp from './SuccessfulSignUp';
 import styled from 'styled-components'
+import imageSllacker from '../images/sllacker.png'
+
 
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -91,9 +93,13 @@ const Register = () => {
 
     return (
         <>
+        <div className='sllackerJawn centerJawn'>
+        <img src={imageSllacker} alt="" />
+        </div>
         {success ? (
             <SuccessfulSignUp/>
         ) : (
+            <div>
             <Content>
         <section className='section text-white'> 
             <p ref={errRef} className={errMsg ? "errmsg" : 
@@ -190,6 +196,7 @@ const Register = () => {
             </p>
         </section>
         </Content>
+        </div>
         )}
         </>
     )
@@ -202,7 +209,7 @@ justified-content: center:
 flex-basis: auto;
 border:2px solid white;
 width:auto;
-margin: 10px 275px 0px 275px;
+margin: 100px 275px 0px 275px;
 min-height:0px;
 _height:500px
 background-color: rgb(27, 255, 27);

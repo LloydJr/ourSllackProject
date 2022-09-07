@@ -4,6 +4,8 @@ import { useState } from "react"
 import axios from "axios"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import styled from 'styled-components'
+import Sidebar from "../Navigation/Sidebar";
+import Header from "../Navigation/Header";
 
 
 
@@ -66,6 +68,8 @@ function ChannelPage() {
 
     return (
         <div>
+          <Header />
+          <Sidebar />
       <h1 style={{
         top: '0%',
         position: 'absolute'

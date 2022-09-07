@@ -17,8 +17,9 @@ function SidebarOption({Icon, title, addChannelOption}) {
     onClick={addChannelOption ? addChannel : selectChannel}
     >
       {Icon && <Icon fontSize ="large" style={{ padding: 8 }}/>}
-      {Icon ? (
-        <h3>{title}</h3>
+      {
+      Icon ? (
+      <h3>{title}</h3>
       ) : ( 
         <SidebarOptionChannel >
           <span>#</span> {title}

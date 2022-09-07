@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import './ChannelRemove.css'
 import Button from '@mui/material/Button'
+import Sidebar from '../Navigation/Sidebar';
+import Header from '../Navigation/Header';
 
 
 export default class ChannelRemove extends React.Component {
@@ -30,6 +32,9 @@ handleSubmit = event => {
 
     render() {
         return (
+            <div>
+                <Header />
+                <Sidebar />
             <div className='the-box centeringPlease box2'>
                 <h5 className = "text-3xl">Remove Channel</h5>
             <form onSubmit={this.handleSubmit}>
@@ -39,6 +44,7 @@ handleSubmit = event => {
                 </label>
                 <Button variant="contained" type="submit">Remove</Button>
             </form>
+            </div>
             </div>
         );
     }

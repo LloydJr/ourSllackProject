@@ -4,6 +4,8 @@ import { useState } from "react"
 import axios from "axios"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import styled from 'styled-components'
+import Header from "../Navigation/Header";
+import Sidebar from "../Navigation/Sidebar";
 
 
 
@@ -39,6 +41,9 @@ export default function HomePage() {
 
 
     return (
+      <div>
+        <Header />
+        <Sidebar />
         <div>
       <h1 style={{
         top: '0%',
@@ -79,6 +84,7 @@ export default function HomePage() {
        </div >
        <div className='min-w-full'>
         
+       </div>
        </div>
        </div>
       

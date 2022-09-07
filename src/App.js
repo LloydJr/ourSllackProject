@@ -23,8 +23,6 @@ function App() {
       
       <Router>
 
-        <Header />
-        <Sidebar />
         <Routes>
           <Route path="/" element={<Register />} />  {/*This is also the path to logout. */}
           <Route path="/sign_in" element={<App1 />}/>
@@ -41,7 +39,6 @@ function App() {
           <Route path="/put_out_user" element={<PutUserOut/>} />
         </Routes> 
    
-        {/* <Footer /> */}
       </Router>
     </div>
    
