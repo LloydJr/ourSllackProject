@@ -13,6 +13,12 @@ export default function ChannelListGetter() {
 
     const [data, setData] = useState([])
     const[channel, setChannel] = useState()
+    const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -39,7 +45,6 @@ export default function ChannelListGetter() {
 
             }
           }
-
           const channelNameG = localStorage.getItem('channelName')
             axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
             .then(res => {
@@ -70,14 +75,12 @@ export default function ChannelListGetter() {
                   inputProps={{
                     id: 'select-multiple-native',
                   }}
-                  >                  {data.map(name => 
+                  >{data.map(name => 
                     <option value={name} className='text-white'> 
                     {name} </option>
                   )}
                 </Select>
                 </div>
-
-      
                   <div href="/current_channel" variant="contained" />
             </div>
             </div>

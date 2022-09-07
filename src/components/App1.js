@@ -53,12 +53,14 @@ function App1() {
 
   const handleSubmit = async (event) => {
     //Prevent page reload
-    localStorage.setItem('user', userName)
     event.preventDefault();  
     const response = await axios.get(`http://localhost:8080/user/find/${userName}`);
     
-    console.log(response?.data);
-    console.log(response);
+    if(response === 404){
+      return console.log("Wrong user")
+    } else {
+      localStorage.setItem("user", userName)
+    }
 
     // let loggedInUser;
     // if(response=404){
@@ -68,8 +70,6 @@ function App1() {
     // }
 
     
-    const loggedInUser = localStorage.getItem("user");
-    console.log(loggedInUser);
 
 
     var { uname, pass } = document.forms[0];
@@ -127,12 +127,12 @@ function App1() {
   );
 
   return (
-    <div className="the-box">
-      <div className="box2">
-        <div className="centeringPlease text-5xl">Sign In</div>
-        {isSubmitted ? <div className="centeringPlease text-2xl">User is successfully logged in
-          <div className="centeringPlease text-3xl">
-          <Link to="/search_channel">Click Here</Link>
+    <div className="app">
+      <div className="login-form">
+        <div className="title">Sign In</div>
+        {isSubmitted ? <div>User is successfully logged in
+          <div >
+          <Link to="/channel_home" className="title">Click Here</Link>
           </div>
         </div> : renderForm}
 

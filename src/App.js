@@ -13,16 +13,20 @@ import SuccessfulSignUp from './components/Pages/SuccessfulSignUp';
 import ChannelListGetter from "./components/ChannelComp/ChannelListGetter";
 import PutUserOut from './components/RemoveFromChannel/PutUserOut';
 import PutUserIn from './components/AddToChannel/PutUserIn';
-
+import Sidebar from './components/Navigation/Sidebar'
+import ChannelBrowserPart2 from './components/Pages/ChannelBrowserp2';
+ 
 function App() {
   return (
     <div className="App">
+
       
       <Router>
 
         <Routes>
-          <Route path="/" element={<Register />} /> {/*This is also the path to logout.*/}
+          <Route path="/" element={<Register />} />  {/*This is also the path to logout. */}
           <Route path="/sign_in" element={<App1 />}/>
+          <Route path="/channel_home" element={<ChannelBrowserPart2/>} />
           <Route path="/user_profile" element={<UserProfile/>} />
           <Route path="/about" element={<About />} />
           <Route path="/direct_messages" element={<DirectMessage />} />
