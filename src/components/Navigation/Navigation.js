@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import NavigationMenu from './NavigationMenu';
-import userIcon from '../images/149071.png'
 
 
 

@@ -4,7 +4,8 @@ import Select from '@mui/material/Select';
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './ChannelListGetter.css'
-
+import Sidebar from "../Navigation/Sidebar";
+import Header from '../Navigation/Header';
 
 
 
@@ -52,8 +53,11 @@ export default function ChannelListGetter() {
 
 
         return (
+          <div>
+            <Header />
+            <Sidebar />
             <div className='text-white'>
-              <div className='box'>
+              <div className='the-box'>
                 <label className='labelme'>
                 Channel(s):
                 </label>
@@ -73,9 +77,9 @@ export default function ChannelListGetter() {
                 </Select>
                 </div>
 
-
       
                   <div href="/current_channel" variant="contained" />
+            </div>
             </div>
           );
 

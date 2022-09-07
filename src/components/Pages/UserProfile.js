@@ -1,4 +1,6 @@
 import React from 'react'
+import Header from '../Navigation/Header';
+import Sidebar from '../Navigation/Sidebar';
 import Timer from './Timer'
 
 
@@ -9,6 +11,8 @@ function UserProfile() {
 
   return (
     <div>
+      <Header />
+      <Sidebar />
       <h1 className='userIcon text-white text-7xl p-8'>
         <i class="fa-solid fa-user"></i>
         </h1>

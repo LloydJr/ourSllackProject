@@ -1,16 +1,12 @@
 import styled from 'styled-components'
-import CreateIcon from '@mui/icons-material/Create';
 import SidebarOption from './SidebarOption';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import AppsIcon from '@mui/icons-material/Apps';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
+import TagIcon from '@mui/icons-material/Tag';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { Link } from 'react-router-dom'
+
+
 
 
 
@@ -20,27 +16,44 @@ function Sidebar() {
 
       <SidebarHeader>
         <SidebarInfo>
-          <h2>Organization</h2>
+          <h2>Menu</h2>
         </SidebarInfo>
-        <CreateIcon className='hover: opacity: 0.9 background-color: #87cefa'/>
+        {/* <CreateIcon className='hover: opacity: 0.9 background-color: #87cefa'/> */}
       </SidebarHeader>
 
       <hr />
-      <SidebarOption Icon={InsertCommentIcon} title="Threads" />
-      <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
-      <SidebarOption Icon={DraftsIcon} title="Saved Items" />
-      <SidebarOption Icon={BookmarkBorderIcon} title="Channel Browser" />
-      <SidebarOption Icon={PeopleAltIcon} title="People & User Groups" />
-      <SidebarOption Icon={AppsIcon} title="Apps" />
-      <SidebarOption Icon={FileCopyIcon} title="File Browser" />
-      <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
-      
+      {/* <SidebarOption Icon={PersonIcon} title="User Profile" />
+      <hr /> */}
+
+      <Link to="/current_channel">
+      <SidebarOption Icon={InsertCommentIcon} title="Current Channel" />
+      </Link>
       <hr />
-      <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
+      <Link to="/search_channel">
+      <SidebarOption Icon={TagIcon} title="Select Channel" href="" />
+      </Link>
+      <hr />
+      <Link to="/put_in_user">
+      <SidebarOption Icon={AddIcon} title="Add User to Channel" />
+      </Link>
+      <hr />
+      <Link to="/put_out_user">
+      <SidebarOption Icon={RemoveIcon} title="Remove User from Channel" href="" />
+      </Link>
+      <hr />
+      <Link to="/add_channel">
+      <SidebarOption Icon={AddIcon} title="Add Channel" href="" />
+      </Link>
+      <hr />
+      <Link to="/remove_channel">
+      <SidebarOption Icon={RemoveIcon} title="Remove Channel" href="" />
+      </Link>
+      <hr />
+      {/* <SidebarOption Icon={ExpandMoreIcon} title="About" />
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Direct Message" />
       <hr />
-      <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
+      <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" /> */}
 
     </SidebarContainer>
 
@@ -80,10 +93,10 @@ padding: 13px;
 const SidebarInfo = styled.div`
 flex: 1;
 
-:hover {
-  opacity: 0.9;
-  background-color: #87cefa;
-}
+// :hover {
+//   opacity: 0.9;
+//   background-color: #87cefa;
+// }
 
 >h2 {
 font size: 15px;

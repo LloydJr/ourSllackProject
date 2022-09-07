@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import imageSllacker from './images/sllacker.png'
+import styled from 'styled-components'
+
+
 
 import "./styles.css";
 
@@ -92,8 +96,10 @@ function App1() {
     }
   };
 
-  
   // Generate JSX code for error message
+  <div className="sllackerJawn">
+  <img src={imageSllacker} alt="" />
+  </div>
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
@@ -121,18 +127,19 @@ function App1() {
   );
 
   return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in
-          <div >
-          <Link to="/search_channel" className="title">Click Here</Link>
+    <div className="the-box">
+      <div className="box2">
+        <div className="centeringPlease text-5xl">Sign In</div>
+        {isSubmitted ? <div className="centeringPlease text-2xl">User is successfully logged in
+          <div className="centeringPlease text-3xl">
+          <Link to="/search_channel">Click Here</Link>
           </div>
         </div> : renderForm}
 
 
       </div >
     </div>
+    
   );
 }
 

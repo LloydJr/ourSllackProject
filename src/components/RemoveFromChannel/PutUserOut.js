@@ -4,6 +4,8 @@ import axios from 'axios'
 import './PutUserOut.css'
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
+import Sidebar from '../Navigation/Sidebar';
+import Header from '../Navigation/Header';
 
 
 export default function PutUserOut() {
@@ -54,10 +56,13 @@ export default function PutUserOut() {
 
 
     return(
-        
+        <div>
+          <Header />
+          <Sidebar />
         <div className='box2 centeringPlease'>
             <div className='text-white'>
               <div >
+
                 <Select
                   multiple
                   native
@@ -73,6 +78,7 @@ export default function PutUserOut() {
                     {name} </option>
                   )}
                 </Select>
+
                 </div>
                 </div>               
             
@@ -89,6 +95,7 @@ export default function PutUserOut() {
                 </label> */}
                 <Button variant="contained" type="submit">Remove</Button>
             </form>
+            </div>
             </div>
             </div>
     )

@@ -4,6 +4,8 @@ import axios from 'axios'
 import './PutUserIn.css'
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
+import Sidebar from '../Navigation/Sidebar';
+import Header from '../Navigation/Header';
 
 
 export default function PutUserin() {
@@ -54,7 +56,9 @@ export default function PutUserin() {
 
 
     return(
-        
+        <div >
+          <Header />
+          <Sidebar />
         <div className='box2 centeringPlease'>
             <div className='text-white'>
               <div >
@@ -89,6 +93,7 @@ export default function PutUserin() {
                 </label> */}
                 <Button variant="contained" type="submit" >Add Channel</Button>
             </form>
+            </div>
             </div>
             </div>
     )
