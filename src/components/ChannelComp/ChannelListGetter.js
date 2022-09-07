@@ -38,7 +38,6 @@ export default function ChannelListGetter() {
 
             }
           }
-
           const channelNameG = localStorage.getItem('channelName')
             axios.get(`http://localhost:8080/channel/messages/${channelNameG}/`)
             .then(res => {
