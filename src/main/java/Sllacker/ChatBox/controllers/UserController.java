@@ -37,6 +37,7 @@ public class UserController {
     @PostMapping
     public @ResponseBody ResponseEntity <User> postUser(@RequestBody User user, Channel channel){
 
+
         channel = channelRepository.findByChannelName("The Lounge");
         channel.getChannel_users().add(user);
         user.getChannels().add(channel);
