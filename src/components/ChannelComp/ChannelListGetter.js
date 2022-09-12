@@ -29,7 +29,6 @@ export default function ChannelListGetter() {
         }).catch(err => console.log(err))
     }, [])
 
-    // const [personName, setPersonName] = React.useState();
 
     
     

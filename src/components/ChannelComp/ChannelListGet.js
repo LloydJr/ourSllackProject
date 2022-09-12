@@ -45,24 +45,7 @@ function ChannelPage() {
 
    
 
-    // const arr = data.map((data1, index) => {
-    //     return (
-    //         <div className="box2 text-center py-8 px-8 mx-auto rounded-xl sm:py-4">
-    //         <div class="text-center space-y-2 sm:text-left">
-    //           <div class="space-y-0.5">
-                
-    //             <p class="text-slate-500 font-medium ">
-    //             <AccountCircleIcon/>
-    //             {data1.userName}
-    //                  </p>
-    //             <p class="text-lg text-white font-semibold">
-    //             {data1.message} 
-    //             </p>
-    //           </div>
-    //         </div>
-    //       </div>   
-    //     )
-    // })
+   
 
     
 
@@ -104,7 +87,6 @@ function ChannelPage() {
            )
            return arr;
         })}
-       {/* {arr} */}
 
        </div >
        <div className='min-w-full'>
