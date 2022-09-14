@@ -6,12 +6,10 @@ import Sllacker.ChatBox.models.User;
 import Sllacker.ChatBox.repositories.ChannelRepository;
 import Sllacker.ChatBox.repositories.MessageRepository;
 import Sllacker.ChatBox.repositories.UserRepository;
-import Sllacker.ChatBox.services.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ public class ChannelController {
 
     @GetMapping("/list/{userName}")
     public ResponseEntity<List<Channel>> listOfUserChannels(@PathVariable String userName, User user) {
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
         List<Channel> userChannels = user.getChannels();
         return new ResponseEntity<>(userChannels, HttpStatus.OK);
     }
@@ -70,7 +68,7 @@ public class ChannelController {
     @GetMapping("/all/list/{userName}")
     public ResponseEntity<List<String>> stringListOfUserChannels(@PathVariable String userName, User user, Channel channel) {
         List<String> channelNames = new ArrayList<>();
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
         List<Channel> userChannels = user.getChannels();
         for (int j = 0; j < userChannels.size(); j++) {
             channelNames.add(userChannels.get(j).getChannelName());
@@ -92,7 +90,7 @@ public class ChannelController {
 
     @PostMapping("/new/{userName}")
     public ResponseEntity<List<Channel>> newChannel(@PathVariable String userName, User user, @RequestBody Channel channel) {
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
         channelRepository.save(channel);
         addUserToChannel(channel.getChannelName(), channel, userName, user);
         return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.OK);
@@ -127,7 +125,7 @@ public class ChannelController {
     public ResponseEntity<List<Channel>> addUserToChannel(@PathVariable String channelName, Channel channel,
                                                           @PathVariable String userName, User user) {
         channel = channelRepository.findByChannelName(channelName);
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
         if (channel.getChannel_users().contains(user)) {
             return new ResponseEntity<>(channelRepository.findAll(), HttpStatus.CONFLICT);
         }
@@ -144,7 +142,7 @@ public class ChannelController {
                                                                @PathVariable String userName, Channel channel, User user) {
 
         channel = channelRepository.findByChannelName(channelName);
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
         channel.getChannel_users().clear();
         user.getChannels().remove(channel);
         channelRepository.save(channel);

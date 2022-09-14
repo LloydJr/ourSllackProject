@@ -1,6 +1,5 @@
 package Sllacker.ChatBox;
 
-import Sllacker.ChatBox.models.Channel;
 import Sllacker.ChatBox.models.DirectMessage;
 import Sllacker.ChatBox.repositories.DirectMessageRepository;
 import org.junit.jupiter.api.Test;

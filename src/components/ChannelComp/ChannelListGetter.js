@@ -29,7 +29,6 @@ export default function ChannelListGetter() {
         }).catch(err => console.log(err))
     }, [])
 
-    // const [personName, setPersonName] = React.useState();
 
     
     
@@ -53,10 +52,6 @@ export default function ChannelListGetter() {
         };
 
       
-
-        
-
-
         return (
           <div>
             <Header />
@@ -85,9 +80,6 @@ export default function ChannelListGetter() {
             </div>
             </div>
           );
-
-
-
 
 
 

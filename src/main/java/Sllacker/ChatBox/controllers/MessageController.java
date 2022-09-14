@@ -9,12 +9,10 @@ import Sllacker.ChatBox.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin("http://localhost:3000/")
@@ -58,7 +56,7 @@ public class MessageController {
     public @ResponseBody ResponseEntity<Message> createMessageAndPost(@PathVariable String userName, @PathVariable String channelName,
                                                                       @RequestBody Message message,
                                                                       User user, Channel channel) {
-        user = userRepository.findByUsername(userName);
+        user = userRepository.findByUserName(userName);
 
         channel = channelRepository.findByChannelName(channelName);
 

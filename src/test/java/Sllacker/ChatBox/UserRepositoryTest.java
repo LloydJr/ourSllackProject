@@ -72,11 +72,11 @@ public class UserRepositoryTest {
     @Test
     public void testDelete_Test() {
 
-        User user = userRepo.findByUsername("Test2");
+        User user = userRepo.findByUserName("Test2");
 
         userRepo.delete(user);
 
-        assertThat(userRepo.findByUsername("Test2")).isNull();
+        assertThat(userRepo.findByUserName("Test2")).isNull();
 
     }
 
@@ -84,7 +84,7 @@ public class UserRepositoryTest {
     @Test
     public void testUpdate_Test() {
 
-        User user = userRepo.findByUsername("Test");
+        User user = userRepo.findByUserName("Test");
 
         user.setUserName("Test2");
 
